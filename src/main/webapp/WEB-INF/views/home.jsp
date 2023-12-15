@@ -12,6 +12,19 @@
 <h1>홈</h1>
 
 <h1>자유 게시판</h1>
+
+<ul>
+		<c:if test="${empty user }">
+			<li><a href="${cpath }/login">login</a></li>
+			<li><a href="${cpath }/signUp">signUp</a></li>
+		</c:if>
+		<c:if test="${not empty user }">
+			<li><a href="${cpath }/logout">logout</a></li>
+			<li><a href="${cpath }/myPage/info">myPage</a></li>
+		</c:if>
+		<li>${user.nick }</li>
+	</ul>
+
 <a href="${cpath }/board/free">더보기</a>
 	<table>
 		<tr>
