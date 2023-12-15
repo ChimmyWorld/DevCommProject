@@ -38,6 +38,7 @@
 		<property name="dataSource" ref="hds"/>
 		<property name="mapperLocations">
 			<list>
+				<value>classpath:mapper/account.xml</value>
 			</list>
 		</property>
 	</bean>
