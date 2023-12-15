@@ -17,4 +17,8 @@ public class BoardService {
 		return dao.selectFreePreview();
 	}
 	
+	public List<BoardVO> getFreeList(){
+		return dao.selectFreeList();
+	}
+	
 }

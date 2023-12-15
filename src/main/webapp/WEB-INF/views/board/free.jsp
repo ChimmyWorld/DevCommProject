@@ -9,10 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>홈</h1>
-
-<h1>자유 게시판</h1>
-<a href="${cpath }/board/free">더보기</a>
 	<table>
 		<tr>
 			<th>제목</th>
@@ -20,7 +16,7 @@
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>
-		<c:forEach var="row" items="${freePreview }">
+		<c:forEach var="row" items="${freeList }">
 		<tr>
 			<td>${row.title }</td>
 			<td>${row.writer }</td>
