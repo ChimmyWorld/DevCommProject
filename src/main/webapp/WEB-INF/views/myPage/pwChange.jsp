@@ -19,27 +19,39 @@ h6 {
 <body>
 	<h1><a href="${cpath }/">Home</a></h1>
 	<hr>
-	
+
 	<form method="POST">
-		<p><input name="userid" placeholder="ID" required></p>
+		<p><input class="expw" name="userpw" type="password" required></p>
 		<h6></h6>
-		<p><input class="pwd1" name="userpw" type="password" placeholder="PW" required></p>
+		<p><input class="pwd1" name="newpw" type="password" placeholder="newPW" required></p>
 		<h6></h6>
-		<p><input class="pwd2" name="pwcheck" type="password" placeholder="PW" required></p>
+		<p><input class="pwd2" name="newpwCheck" type="password" required></p>
 		<h6></h6>
-		<p><input name="nick" placeholder="Nick" required></p>
-		<h6></h6>
-		<p><input name="email" type="email" placeholder="Email" required></p>
-		<h6></h6>
+		<input name="idx" type="hidden" value="${user.idx }">
 		<p></p>
-		<button>signUp</button>
+		<button>PW 찾기</button>
 	</form>
 	
 	<script>
+		let pw = '${user.userpw}';
+		let expw = document.getElementsByClassName('expw')[0];
 		let pwd1 = document.getElementsByClassName('pwd1')[0];
 		let pwd2 = document.getElementsByClassName('pwd2')[0];
 		
 		let h6 = document.getElementsByTagName('h6');
+		
+		expw.onblur = () => {
+			if(pw != expw.value) {
+				h6[0].innerHTML = '등록한 패스워드와 일치하지 않습니다';
+				h6[0].style.color = 'red';
+				
+				expw.value = '';
+				expw.focus();
+			}
+			else {
+				h6[0].innerHTML = '';
+			}
+		}
 		
 		pwd2.onblur = () => {
 			if(pwd1.value != pwd2.value) {
@@ -54,6 +66,5 @@ h6 {
 			}
 		}
 	</script>
-	
 </body>
 </html>

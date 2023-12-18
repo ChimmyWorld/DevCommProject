@@ -36,4 +36,19 @@
 		select * from account where userid = #{userid} and email = #{email}
 	</select>
 	
+	<delete id="delete"
+		parameterType="com.itbank.model.vo.AccountVO">
+	
+		delete account where idx = #{idx}
+	</delete>
+	
+	<update id="updatePW"
+		parameterType="com.itbank.model.vo.AccountVO">
+		
+		update account
+			set
+				userpw = #{userpw}
+			where idx = #{idx}
+	</update>
+	
 </mapper>

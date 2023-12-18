@@ -14,4 +14,8 @@ public interface AccountDAO {
 
 	AccountVO findPW(AccountVO input);
 
+	int delete(AccountVO input);
+
+	int updatePW(AccountVO input);
+
 }

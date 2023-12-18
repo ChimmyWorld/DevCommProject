@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -81,6 +82,7 @@ public class AccountService {
 		AccountVO account = dao.findPW(input);
 		int row = 0;
 		String msg = "";
+		String newPW = "";
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		if(account == null) {
@@ -91,7 +93,51 @@ public class AccountService {
 		}
 		else {
 			row = 1;
-			msg = "회원님의 임시 비밀번호는 asdf입니다";
+			newPW = RandomStringUtils.randomAlphanumeric(6);
+			msg = "회원님의 임시 비밀번호는 " + newPW + "입니다";
+			map.put("row", row);
+			map.put("msg", msg);
+			
+			account.setUserpw(newPW);
+			row = dao.updatePW(account);
+		}
+		
+		return map;
+	}
+
+	public void deleteUser(AccountVO input) {
+		int row = dao.delete(input);
+		
+		if(row == 1) {
+			System.out.println(input.getIdx() + " 탈퇴 완료");
+		}
+		else {
+			System.out.println(input.getIdx() + " 탈퇴 실패. session 다시 확인");
+		}
+		
+	}
+
+	public Map<String, Object> updateUser(AccountVO input, String newpw) {
+//		Map<String, Object> pwMap = new HashMap<String, Object>();
+//		pwMap.put("idx", input.getIdx());
+//		pwMap.put("expw", input.getUserpw());
+//		pwMap.put("newpw", newpw);
+		
+		input.setUserpw(newpw);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		int row = 0;
+		String msg = "";
+		
+		row = dao.updatePW(input);
+		
+		if(row == 1) {
+			msg = "패스워드 변경 완료";
+			map.put("row", row);
+			map.put("msg", msg);
+		}
+		else {
+			msg = "패스워드 변경 실패. SQL이나 Data 재확인";
 			map.put("row", row);
 			map.put("msg", msg);
 		}
