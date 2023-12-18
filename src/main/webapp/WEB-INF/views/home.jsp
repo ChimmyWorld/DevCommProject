@@ -11,8 +11,6 @@
 <body>
 <h1>홈</h1>
 
-<h1>자유 게시판</h1>
-
 <ul>
 		<c:if test="${empty user }">
 			<li><a href="${cpath }/login">login</a></li>
@@ -25,7 +23,8 @@
 		<li>${user.nick }</li>
 	</ul>
 
-<a href="${cpath }/board/free">더보기</a>
+	<h3>자유 게시판</h3>
+	<a href="${cpath }/free">더보기</a>
 	<table>
 		<tr>
 			<th>제목</th>
@@ -35,13 +34,79 @@
 		</tr>
 		<c:forEach var="row" items="${freePreview }">
 		<tr>
-			<td>${row.title }</td>
+			<td><a href="${cpath }/articles/${row.idx }">
+			${row.title }
+			</a></td>
 			<td>${row.writer }</td>
 			<td>${row.write_date }</td>
 			<td>${row.view_count }</td>
 		</tr>
 		</c:forEach>
 	</table>
+	
+	<h3>팁/정보 게시판</h3>
+	<a href="${cpath }/info">더보기</a>
+	<table>
+		<tr>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>작성일</th>
+			<th>조회수</th>
+		</tr>
+		<c:forEach var="row" items="${infoPreview }">
+		<tr>
+			<td><a href="${cpath }/articles/${row.idx }">
+			${row.title }
+			</a></td>
+			<td>${row.writer }</td>
+			<td>${row.write_date }</td>
+			<td>${row.view_count }</td>
+		</tr>
+		</c:forEach>
+	</table>
+	
+	<h3>스터디</h3>
+	<a href="${cpath }/study">더보기</a>
+	<table>
+		<tr>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>작성일</th>
+			<th>조회수</th>
+		</tr>
+		<c:forEach var="row" items="${studyPreview }">
+		<tr>
+			<td><a href="${cpath }/articles/${row.idx }">
+			${row.title }
+			</a></td>
+			<td>${row.writer }</td>
+			<td>${row.write_date }</td>
+			<td>${row.view_count }</td>
+		</tr>
+		</c:forEach>
+	</table>
+	
+	<h3>QnA 게시판</h3>
+	<a href="${cpath }/qna">더보기</a>
+	<table>
+		<tr>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>작성일</th>
+			<th>조회수</th>
+		</tr>
+		<c:forEach var="row" items="${qnaPreview }">
+		<tr>
+			<td><a href="${cpath }/articles/${row.idx }">
+			${row.title }
+			</a></td>
+			<td>${row.writer }</td>
+			<td>${row.write_date }</td>
+			<td>${row.view_count }</td>
+		</tr>
+		</c:forEach>
+	</table>
+	
 
 </body>
 </html>

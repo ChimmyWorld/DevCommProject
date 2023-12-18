@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>free.jsp</title>
+<title>study.jsp</title>
 </head>
 <body>
 
-	<h1>자유게시판</h1>
+	<h1>스터디게시판</h1>
 	<table>
 		<tr>
 			<th>제목</th>
@@ -18,7 +18,7 @@
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>
-		<c:forEach var="row" items="${freeList }">
+		<c:forEach var="row" items="${studyList }">
 		<tr>
 			<td><a href="${cpath }/articles/${row.idx }">
 			${row.title }
@@ -31,7 +31,7 @@
 	</table>
 	
 	<c:if test="${not empty user }">
-	<a href="${cpath }/free/new">글쓰기</a>
+	<a href="${cpath }/study/new">글쓰기</a>
 	</c:if>
 
 </body>

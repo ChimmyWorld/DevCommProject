@@ -16,7 +16,10 @@ public class HomeController {
 	@GetMapping("/")
 	public ModelAndView home() {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("freePreview", bs.getFreePreview());
+		mav.addObject("freePreview", bs.getPreview(100));
+		mav.addObject("infoPreview", bs.getPreview(200));
+		mav.addObject("studyPreview", bs.getPreview(300));
+		mav.addObject("qnaPreview", bs.getPreview(400));
 		mav.setViewName("home");
 		return mav;
 	}
