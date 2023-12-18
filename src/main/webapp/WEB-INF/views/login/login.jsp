@@ -25,6 +25,7 @@
 	<div>
 		<a href="${cpath }/findId">ID 찾기</a>
 		<a href="${cpath }/findPw">PW 찾기</a>
+		<a href="${cpath }/signUp">회원가입</a>
 	</div>
 </body>
 </html>
