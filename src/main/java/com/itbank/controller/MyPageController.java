@@ -1,5 +1,6 @@
 package com.itbank.controller;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 import javax.servlet.http.HttpSession;
@@ -48,7 +49,7 @@ public class MyPageController {
 	public void pwChange() {}
 	
 	@PostMapping("/pwChange")
-	public String pwChange(Model model, AccountVO input, String newpw) {
+	public String pwChange(Model model, AccountVO input, String newpw) throws NoSuchAlgorithmException {
 		System.out.println(input.getUserpw());
 		System.out.println(newpw);
 		
@@ -73,6 +74,11 @@ public class MyPageController {
 	public String ex() {
 		System.out.println("SQL에 작성 실패");
 		
+		return "redirect:/";
+	}
+	
+	@ExceptionHandler(NoSuchAlgorithmException.class)
+	public String algoEx() {
 		return "redirect:/";
 	}
 	

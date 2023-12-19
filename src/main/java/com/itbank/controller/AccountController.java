@@ -1,5 +1,6 @@
 package com.itbank.controller;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 import javax.servlet.http.HttpSession;
@@ -78,7 +79,7 @@ public class AccountController {
 	}
 	
 	@PostMapping("/findPw")
-	public String pwFind(Model model, AccountVO input) {
+	public String pwFind(Model model, AccountVO input) throws NoSuchAlgorithmException {
 		System.out.println(input.getUserid());
 		System.out.println(input.getEmail());
 		
@@ -91,6 +92,11 @@ public class AccountController {
 	public String ex() {
 		System.out.println("SQL에 작성 실패");
 		
+		return "redirect:/";
+	}
+	
+	@ExceptionHandler(NoSuchAlgorithmException.class)
+	public String algoEx() {
 		return "redirect:/";
 	}
 	

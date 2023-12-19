@@ -29,7 +29,7 @@ h6 {
 		<h6></h6>
 		<input name="idx" type="hidden" value="${user.idx }">
 		<p></p>
-		<button>PW 찾기</button>
+		<button>패스워드 변경</button>
 	</form>
 	
 	<script>
@@ -40,17 +40,25 @@ h6 {
 		
 		let h6 = document.getElementsByTagName('h6');
 		
+		const url = 'pwCheck';
+		
 		expw.onblur = () => {
-			if(pw != expw.value) {
-				h6[0].innerHTML = '등록한 패스워드와 일치하지 않습니다';
-				h6[0].style.color = 'red';
+			fetch(url + '?password=' + expw.value, {method: 'GET'})
+			.then(response => response.text())
+			.then(data => {
+				console.log(data);
 				
-				expw.value = '';
-				expw.focus();
-			}
-			else {
-				h6[0].innerHTML = '';
-			}
+				if(pw == data) {
+					h6[0].innerHTML = '';
+				}
+				else {
+					h6[0].innerHTML = '등록한 패스워드와 일치하지 않습니다';
+					h6[0].style.color = 'red';
+					
+					expw.value = '';
+					expw.focus();
+				}
+			})
 		}
 		
 		pwd2.onblur = () => {
