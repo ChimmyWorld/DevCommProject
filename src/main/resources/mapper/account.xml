@@ -51,4 +51,10 @@
 			where idx = #{idx}
 	</update>
 	
+	<select id="searchId"
+		resultType="com.itbank.model.vo.AccountVO">
+	
+		select * from account where userid = #{userid}
+	</select>
+	
 </mapper>

@@ -1,5 +1,6 @@
 package com.itbank.service;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itbank.components.SHA512;
 import com.itbank.model.AccountDAO;
 import com.itbank.model.vo.AccountVO;
 
@@ -16,6 +18,7 @@ import com.itbank.model.vo.AccountVO;
 public class AccountService {
 
 	@Autowired private AccountDAO dao;
+	@Autowired private SHA512 hash;
 
 	public String getVersion() {
 		return dao.test();
@@ -78,7 +81,7 @@ public class AccountService {
 		return map;
 	}
 
-	public Map<String, Object> findPW(AccountVO input) {
+	public Map<String, Object> findPW(AccountVO input) throws NoSuchAlgorithmException {
 		AccountVO account = dao.findPW(input);
 		int row = 0;
 		String msg = "";
@@ -98,7 +101,7 @@ public class AccountService {
 			map.put("row", row);
 			map.put("msg", msg);
 			
-			account.setUserpw(newPW);
+			account.setUserpw(hash.getHash(newPW));
 			row = dao.updatePW(account);
 		}
 		
@@ -117,13 +120,8 @@ public class AccountService {
 		
 	}
 
-	public Map<String, Object> updateUser(AccountVO input, String newpw) {
-//		Map<String, Object> pwMap = new HashMap<String, Object>();
-//		pwMap.put("idx", input.getIdx());
-//		pwMap.put("expw", input.getUserpw());
-//		pwMap.put("newpw", newpw);
-		
-		input.setUserpw(newpw);
+	public Map<String, Object> updateUser(AccountVO input, String newpw) throws NoSuchAlgorithmException {
+		input.setUserpw(hash.getHash(newpw));
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		int row = 0;
@@ -143,6 +141,22 @@ public class AccountService {
 		}
 		
 		return map;
+	}
+
+	public String changeHash(String password) throws NoSuchAlgorithmException {
+		return hash.getHash(password);
+	}
+
+	public AccountVO existId(AccountVO input) {
+		AccountVO acc = new AccountVO();
+		
+		acc = dao.searchId(input);
+		
+		if(acc == null) {
+			acc = new AccountVO();
+		}
+		
+		return acc;
 	}
 	
 }

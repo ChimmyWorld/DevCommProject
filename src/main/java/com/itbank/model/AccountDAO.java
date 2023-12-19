@@ -18,4 +18,6 @@ public interface AccountDAO {
 
 	int updatePW(AccountVO input);
 
+	AccountVO searchId(AccountVO input);
+
 }
