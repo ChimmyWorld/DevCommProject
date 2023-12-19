@@ -19,4 +19,10 @@
 			select count(*) from reply where board_idx = #{idx}
 	</select>
 	
+	<select id="selectMyReplyAll"
+		resultType="com.itbank.model.vo.ReplyVO">
+		select * from reply where writer = #{nick}
+		order by idx desc
+	</select>
+	
 </mapper>

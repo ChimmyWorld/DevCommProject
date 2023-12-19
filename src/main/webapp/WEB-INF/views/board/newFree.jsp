@@ -10,9 +10,11 @@
 
 <h1>글작성</h1>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
 	<p><input name="title" placeholder="제목" required><p>
 	<p><input name="contents" placeholder="내용" required></p>
+	<p><input name="writer" type="hidden" value="${user.nick }"></p>
+	<p><input name="upload" type="file" accept="image/*"></p>
 	<button>작성</button>
 	
 	<input name="type" type="hidden" value="100">

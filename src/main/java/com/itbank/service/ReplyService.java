@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itbank.model.ReplyDAO;
+import com.itbank.model.vo.AccountVO;
 import com.itbank.model.vo.ReplyVO;
 
 @Service
@@ -23,5 +24,9 @@ public class ReplyService {
 	
 	public int countReply(int idx) {
 		return dao.countOne(idx);
+	}
+
+	public Object getMyReplys(AccountVO user) {
+		return dao.selectMyReplyAll(user);
 	}
 }
