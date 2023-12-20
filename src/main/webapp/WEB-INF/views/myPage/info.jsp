@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="cpath" value="${pageContext.request.contextPath }"/>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cpath" value="${pageContext.request.contextPath }" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +9,28 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1><a href="${cpath }/">Home</a></h1>
-	
+	<h1>
+		<a href="${cpath }/">Home</a>
+	</h1>
+
 	<ul>
 		<li><a href="${cpath }/myPage/info">* 내 정보</a></li>
 		<li><a href="${cpath }/myPage/articles">내 활동</a></li>
 		<li><a href="${cpath }/myPage/settings">계정관리</a></li>
 	</ul>
-	
+
+	<form method="POST" enctype="mutlpart/form-data">
+		<table>
+			<tr>
+				<th>프로필 사진</th>
+				<td><img src="${cpath}/profileImg/${user.idx }/${user.profile_img}"></td>
+			</tr>
+		</table>
+		<input name="idx" type="hidden" value="${user.idx }">
+		<input name="upload" type="file" accept="image/*">
+		<button>변경</button>
+	</form>
+
 	<table>
 		<tr>
 			<th>닉네임</th>
