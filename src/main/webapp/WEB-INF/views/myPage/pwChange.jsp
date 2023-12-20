@@ -32,16 +32,14 @@ h6 {
 		<button>패스워드 변경</button>
 	</form>
 	
-	<script>
+	<script type="text/javascript" src="${cpath }/resources/js/pwCheck.js"></script>
+	<script type="text/javascript" src="${cpath }/resources/js/comparePW.js"></script>
+	<script type="text/javascript">
 		let pw = '${user.userpw}';
 		let expw = document.getElementsByClassName('expw')[0];
-		let pwd1 = document.getElementsByClassName('pwd1')[0];
-		let pwd2 = document.getElementsByClassName('pwd2')[0];
-		
-		let h6 = document.getElementsByTagName('h6');
-		
+	
 		const url = 'pwCheck';
-		
+	
 		expw.onblur = () => {
 			fetch(url + '?password=' + expw.value, {method: 'GET'})
 			.then(response => response.text())
@@ -60,19 +58,7 @@ h6 {
 				}
 			})
 		}
-		
-		pwd2.onblur = () => {
-			if(pwd1.value != pwd2.value) {
-				h6[2].innerHTML = '입력값이 일치하지 않습니다';
-				h6[2].style.color = 'red';
-				
-				pwd1.focus();
-				pwd2.value = '';
-			}
-			else {
-				h6[2].innerHTML = '';
-			}
-		}
 	</script>
+	
 </body>
 </html>

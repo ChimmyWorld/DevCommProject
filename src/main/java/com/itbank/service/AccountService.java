@@ -158,5 +158,29 @@ public class AccountService {
 		
 		return acc;
 	}
+
+	public AccountVO existNick(AccountVO input) {
+		AccountVO acc = new AccountVO();
+		
+		acc = dao.searchNick(input);
+		
+		if(acc == null) {
+			acc = new AccountVO();
+		}
+		
+		return acc;
+	}
+
+	public AccountVO existEmail(AccountVO input) {
+		AccountVO acc = new AccountVO();
+		
+		acc = dao.searchEmail(input);
+		
+		if(acc == null) {
+			acc = new AccountVO();
+		}
+		
+		return acc;
+	}
 	
 }

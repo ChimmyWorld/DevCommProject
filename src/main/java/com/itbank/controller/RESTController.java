@@ -29,6 +29,24 @@ public class RESTController {
 		return acc;
 	}
 	
+	@GetMapping("/signUp/existNick")
+	public AccountVO existNick(AccountVO input) {
+		System.out.println(input.getNick());
+		
+		AccountVO acc = as.existNick(input);
+		
+		return acc;
+	}
+	
+	@GetMapping("/signUp/existEmail")
+	public AccountVO existEmail(AccountVO input) {
+		System.out.println(input.getEmail());
+		
+		AccountVO acc = as.existEmail(input);
+		
+		return acc;
+	}
+	
 	@ExceptionHandler(NoSuchAlgorithmException.class)
 	public String algoEx() {
 		return "redirect:/";
