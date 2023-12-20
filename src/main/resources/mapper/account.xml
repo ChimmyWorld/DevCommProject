@@ -57,4 +57,16 @@
 		select * from account where userid = #{userid}
 	</select>
 	
+	<select id="searchNick"
+		resultType="com.itbank.model.vo.AccountVO">
+	
+		select * from account where nick = #{nick}
+	</select>
+	
+	<select id="searchEmail"
+		resultType="com.itbank.model.vo.AccountVO">
+	
+		select * from account where email = #{email}
+	</select>
+	
 </mapper>

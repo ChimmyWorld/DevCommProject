@@ -20,4 +20,8 @@ public interface AccountDAO {
 
 	AccountVO searchId(AccountVO input);
 
+	AccountVO searchNick(AccountVO input);
+
+	AccountVO searchEmail(AccountVO input);
+
 }
