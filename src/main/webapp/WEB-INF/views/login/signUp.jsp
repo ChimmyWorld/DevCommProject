@@ -35,48 +35,10 @@ h6 {
 		<button>signUp</button>
 	</form>
 	
-	<script>
-		let pwd1 = document.getElementsByClassName('pwd1')[0];
-		let pwd2 = document.getElementsByClassName('pwd2')[0];
-		
-		let h6 = document.getElementsByTagName('h6');
-		
-		pwd2.onblur = () => {
-			if(pwd1.value != pwd2.value) {
-				h6[2].innerHTML = '입력값이 일치하지 않습니다';
-				h6[2].style.color = 'red';
-				
-				pwd1.focus();
-				pwd2.value = '';
-			}
-			else {
-				h6[2].innerHTML = '';
-			}
-		}
-		
-		let userid = document.getElementsByName('userid')[0];
-		let nick = document.getElementsByName('nick')[0];
-		let email = document.getElementsByName('email')[0];
-		
-		const url = 'signUp/exist';
-		
-		userid.onblur = () => {
-			fetch(url + 'Id?userid=' + userid.value, {method: 'GET'})
-			.then(response => response.json())
-			.then(data => {
-				if(data.userid != null) {
-					h6[0].innerHTML = '이미 사용되고 있는 아이디입니다.';
-					h6[0].style.color = 'red';
-					
-					userid.value = '';
-					userid.focus();
-				}
-				else {
-					h6[0].innerHTML = '';
-				}
-			})
-		}
-	</script>
+	<script type="text/javascript" src="${cpath }/resources/js/pwCheck.js"></script>
+	<script type="text/javascript" src="${cpath }/resources/js/idCheck.js"></script>
+	<script type="text/javascript" src="${cpath }/resources/js/nickCheck.js"></script>
+	<script type="text/javascript" src="${cpath }/resources/js/emailCheck.js"></script>
 	
 </body>
 </html>
