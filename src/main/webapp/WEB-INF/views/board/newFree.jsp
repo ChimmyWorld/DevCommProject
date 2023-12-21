@@ -18,7 +18,7 @@
 	<button>작성</button>
 	
 	<input name="type" type="hidden" value="100">
-	
 </form>
+
 </body>
 </html>

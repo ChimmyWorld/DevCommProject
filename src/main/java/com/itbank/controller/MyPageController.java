@@ -1,5 +1,6 @@
 package com.itbank.controller;
 
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
@@ -29,6 +30,13 @@ public class MyPageController {
 
 	@GetMapping("/info")
 	public void info() {}
+	
+	@PostMapping("/info")
+	public String info(AccountVO input) throws IOException{
+		as.updateProfileImg(input);
+		
+		return "myPage/info";
+	}
 	
 	@GetMapping("/articles")
 	public ModelAndView articles(HttpSession session) {
@@ -81,5 +89,4 @@ public class MyPageController {
 	public String algoEx() {
 		return "redirect:/";
 	}
-	
 }

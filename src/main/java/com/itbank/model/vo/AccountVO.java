@@ -13,12 +13,15 @@ PROFILE_IMG          VARCHAR2(500)
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class AccountVO {
 	private int idx;
 	private String userid, userpw;
 	private String nick, email;
 	private String profile_img;
 	private Date join_date;
+	private MultipartFile upload;
 	private boolean isRoot;
 	
 	public int getIdx() {
@@ -63,6 +66,12 @@ public class AccountVO {
 	public void setJoin_date(Date join_date) {
 		this.join_date = join_date;
 	}
+	public MultipartFile getUpload() {
+		return upload;
+	}
+	public void setUpload(MultipartFile upload) {
+		this.upload = upload;
+	}
 	public boolean isRoot() {
 		return isRoot;
 	}
@@ -70,5 +79,5 @@ public class AccountVO {
 		this.isRoot = isRoot;
 	}
 	
-	
+
 }
