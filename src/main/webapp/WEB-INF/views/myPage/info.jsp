@@ -19,15 +19,21 @@
 		<li><a href="${cpath }/myPage/settings">계정관리</a></li>
 	</ul>
 
-	<form method="POST" enctype="mutlpart/form-data">
-		<table>
-			<tr>
-				<th>프로필 사진</th>
-				<td><img src="${cpath}/profileImg/${user.idx }/${user.profile_img}"></td>
-			</tr>
-		</table>
-		<input name="idx" type="hidden" value="${user.idx }">
+	<table>
+		<tr>
+			<th>프로필 사진</th>
+			<c:if test="${user.profile_img == 'default.jpg'}">
+				<td><img src="${cpath}/profileImg/default.jpg"></td>
+			</c:if>
+			<c:if test="${user.profile_img != 'default.jpg'}">
+				<td><img src="${cpath}/profileImg/${user.idx}/${user.profile_img}"></td>
+			</c:if>
+		</tr>
+	</table>
+
+	<form method="POST" enctype="multipart/form-data">
 		<input name="upload" type="file" accept="image/*">
+		<input name="idx" type="hidden" value="${user.idx }">
 		<button>변경</button>
 	</form>
 

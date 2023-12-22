@@ -1,5 +1,7 @@
 package com.itbank.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +10,10 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.itbank.components.SHA512;
 import com.itbank.model.AccountDAO;
@@ -19,6 +24,7 @@ public class AccountService {
 
 	@Autowired private AccountDAO dao;
 	@Autowired private SHA512 hash;
+	@Value("file:C:/img_folder/profile") private Resource dir;
 
 	public String getVersion() {
 		return dao.test();
@@ -182,5 +188,32 @@ public class AccountService {
 		
 		return acc;
 	}
+
+	public int updateProfileImg(AccountVO input) throws IOException{
+		MultipartFile file = input.getUpload();
+		// 파일이 업로드되었을 때만 아래 로직을 수행
+		if (file != null && !file.isEmpty()) {
+			
+			// 1. DB에 저장할 파일 이름 저장
+	        input.setProfile_img("profile.jpg");
+	        
+	        // 2. update 후 작성된 글 번호 (idx) 가져오기
+	        int row = dao.updateProfileImg(input);
+	        String idx = String.valueOf(input.getIdx()); 
+	        
+	        // 3. 해당 번호의 폴더 생성
+	        File newDir = new File(dir.getFile(), idx);
+	        newDir.mkdir();
+	        
+	        // 4. 3번의 폴더에 이미지를 업로드
+	        File dst = new File(newDir, "profile.jpg");
+	        file.transferTo(dst);
+
+	        return row;
+	    } else {
+	        return 0;
+	    }
+	}
+	
 	
 }
