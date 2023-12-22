@@ -22,9 +22,9 @@
 	
 	<bean id="hc" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.1.100:1521:xe" />
-		<property name="username" value="c##itbank" />
-		<property name="password" value="it" />
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="c##test" />
+		<property name="password" value="1" />
 	</bean>
 	
 	<bean id="hds" class="com.zaxxer.hikari.HikariDataSource">
@@ -38,6 +38,7 @@
 				<value>classpath:mapper/account.xml</value>
 				<value>classpath:mapper/board.xml</value>
 				<value>classpath:mapper/reply.xml</value>
+				<value>classpath:mapper/recommend.xml</value>
 			</list>
 		</property>
 	</bean>

@@ -5,7 +5,6 @@ import java.util.List;
 import com.itbank.components.Paging;
 import com.itbank.model.vo.AccountVO;
 import com.itbank.model.vo.BoardVO;
-import com.itbank.model.vo.RecommendVO;
 
 public interface BoardDAO {
 
@@ -22,12 +21,5 @@ public interface BoardDAO {
 	
 	// 마이페이지
 	List<BoardVO> selectMyBoardList(AccountVO user);
-	
-	//추천
-	int selectRecommend(int idx, String recommender);
-	int selectRecCnt(int arg0, int arg1);
-	int deleteRec(RecommendVO input);
-	int updateRec(RecommendVO input);
-	int insertRec(RecommendVO input);
-	
+
 }

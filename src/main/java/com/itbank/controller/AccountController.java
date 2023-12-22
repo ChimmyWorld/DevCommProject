@@ -3,6 +3,7 @@ package com.itbank.controller;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +27,13 @@ public class AccountController {
 	}
 	
 	@PostMapping("/login")
-	public String login(AccountVO input, HttpSession session) {
+	public String login(AccountVO input, String saveId, 
+			HttpSession session, HttpServletResponse response) {
 		System.out.println(input.getUserid());
 		System.out.println(input.getUserpw());
+		System.out.println(saveId);
 		
-		as.login(input, session);
+		as.login(input, saveId, session, response);
 		
 		return "redirect:/";
 	}

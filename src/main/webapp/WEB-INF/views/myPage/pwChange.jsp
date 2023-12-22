@@ -21,44 +21,20 @@ h6 {
 	<hr>
 
 	<form method="POST">
-		<p><input class="expw" name="userpw" type="password" required></p>
+		<p><input class="expw" name="userpw" type="password" placeholder="exPW" required></p>
 		<h6></h6>
 		<p><input class="pwd1" name="newpw" type="password" placeholder="newPW" required></p>
 		<h6></h6>
-		<p><input class="pwd2" name="newpwCheck" type="password" required></p>
+		<p><input class="pwd2" name="newpwCheck" type="password" placeholder="pwCheck" required></p>
 		<h6></h6>
 		<input name="idx" type="hidden" value="${user.idx }">
+		<input name="jsfind" type="hidden" value="${user.userpw }">
 		<p></p>
 		<button>패스워드 변경</button>
 	</form>
 	
 	<script type="text/javascript" src="${cpath }/resources/js/pwCheck.js"></script>
 	<script type="text/javascript" src="${cpath }/resources/js/comparePW.js"></script>
-	<script type="text/javascript">
-		let pw = '${user.userpw}';
-		let expw = document.getElementsByClassName('expw')[0];
-	
-		const url = 'pwCheck';
-	
-		expw.onblur = () => {
-			fetch(url + '?password=' + expw.value, {method: 'GET'})
-			.then(response => response.text())
-			.then(data => {
-				console.log(data);
-				
-				if(pw == data) {
-					h6[0].innerHTML = '';
-				}
-				else {
-					h6[0].innerHTML = '등록한 패스워드와 일치하지 않습니다';
-					h6[0].style.color = 'red';
-					
-					expw.value = '';
-					expw.focus();
-				}
-			})
-		}
-	</script>
 	
 </body>
 </html>

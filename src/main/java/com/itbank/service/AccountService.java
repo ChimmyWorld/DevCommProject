@@ -6,6 +6,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -30,7 +32,8 @@ public class AccountService {
 		return dao.test();
 	}
 
-	public AccountVO login(AccountVO input, HttpSession session) {
+	public AccountVO login(AccountVO input, String saveId, 
+			HttpSession session, HttpServletResponse response) {
 		AccountVO account = dao.selectOne(input);
 		
 		if(account == null) {
@@ -39,9 +42,23 @@ public class AccountService {
 		else {
 			System.out.println("1");
 			session.setAttribute("user", account);
+			
+			createCookie(response, saveId, "userid", account.getUserid());
 		}
 		
 		return account;
+	}
+
+	private void createCookie(HttpServletResponse response, 
+			String saveId, String name, String userid) {
+		Cookie cookie = new Cookie(name, userid);
+		cookie.setMaxAge(0);
+		
+		if (saveId != null) {
+			cookie.setMaxAge(7 * 24 * 60 * 60);
+		}
+		
+        response.addCookie(cookie);
 	}
 
 	public Map<String, Object> signUp(AccountVO input) {

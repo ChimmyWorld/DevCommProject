@@ -95,13 +95,4 @@ public class BoardService {
 		return dao.selectMyBoardList(user);
 	}
 
-	// 추천
-	public int selectRecommend(int board_idx, String recommender) {
-		return dao.selectRecommend(board_idx, recommender);
-	}
-
-	public int selectRecCnt(int board_idx, int good) {
-		return dao.selectRecCnt(board_idx, good);
-	}
-
 }

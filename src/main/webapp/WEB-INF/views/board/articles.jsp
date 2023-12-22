@@ -7,12 +7,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.good {
+		color: blue;
+	}
+	.bad {
+		color: red;
+	}
+</style>
 </head>
 <body>
 	<h1>게시글</h1>
 	<table>
 		<tr>
-			<th>제목</th>
+			<th class="rowInt" data-idx="${row.idx }">제목</th>
 			<td>${row.title }</td>
 		</tr>
 		<tr>
@@ -38,12 +46,13 @@
 
 	<c:set var="isCheck" value="0"></c:set>
 
-	<div>
-		<button class="${isCheck == 1 ? 'good' : ''}">
-			추천<br> (${goodCnt })
+	<div class="recommend">
+		<button class="${recommend.isCheck == 1 ? 'good' : ''}">
+			∧
 		</button>
-		<button class="${isCheck == 2 ? 'bad' : ''}">
-			비추천<br> (${badCnt })
+		<div class="recCount"></div>
+		<button class="${recommend.isCheck == 2 ? 'bad' : ''}">
+			∨
 		</button>
 	</div>
 
@@ -88,6 +97,8 @@ ${re.contents }
 			<tr>
 		</c:forEach>
 	</table>
+	
+	<script type="text/javascript" src="${cpath }/resources/js/recommend.js"></script>
 
 </body>
 </html>
