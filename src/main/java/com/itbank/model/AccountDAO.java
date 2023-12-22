@@ -3,7 +3,8 @@ package com.itbank.model;
 import com.itbank.model.vo.AccountVO;
 
 public interface AccountDAO {
-
+	
+	// 계정 관련 기능
 	String test();
 
 	AccountVO selectOne(AccountVO input);
@@ -23,5 +24,8 @@ public interface AccountDAO {
 	AccountVO searchNick(AccountVO input);
 
 	AccountVO searchEmail(AccountVO input);
-
+	
+	// 프로필 등록 관련 기능
+	String selectIdx();
+	int updateProfileImg(AccountVO input); 
 }

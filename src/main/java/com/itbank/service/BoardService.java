@@ -2,7 +2,9 @@ package com.itbank.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,25 +12,37 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.itbank.components.Paging;
 import com.itbank.model.BoardDAO;
 import com.itbank.model.vo.AccountVO;
 import com.itbank.model.vo.BoardVO;
 
 @Service
 public class BoardService {
-	@Autowired
-	private BoardDAO dao;
-
-	@Value("file:C:/img_folder/board")
-	private Resource dir;
+	@Autowired private BoardDAO dao;
+	@Value("file:C:/img_folder/board") private Resource dir;
 
 	// 게시판 CRUD
 	public List<BoardVO> getPreview(int idx) {
 		return dao.selectPreview(idx);
 	}
 
-	public List<BoardVO> getList(int type) {
-		return dao.selectList(type);
+	public Map<String, Object> getList(Integer idx, Integer type, String order, String keyword, String search) {
+		idx = idx == null ? 1 : idx;
+		
+		System.out.println(dao.totalBoard(type));
+		
+		// 페이징 코드
+		Paging p = new Paging(idx, dao.totalBoard(type), type, order, keyword, search);
+		System.out.println(order);
+		List<BoardVO> list = dao.selectList(p);
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		result.put("p", p);
+		result.put("list", list);
+		
+		return result;
 	}
 
 	public BoardVO getBoard(int idx) {
