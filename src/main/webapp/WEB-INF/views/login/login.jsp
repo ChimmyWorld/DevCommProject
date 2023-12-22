@@ -14,8 +14,9 @@
 	<hr>
 	
 	<form method="POST">
-		<p><input name="userid" placeholder="ID" required></p>
+		<p><input name="userid" placeholder="ID" required value="${cookie.userid.value}"></p>
 		<p><input name="userpw" type="password" placeholder="PW" required></p>
+		<p><input type="checkbox" name="saveId" value="yes">아이디 저장</p>
 		
 		<button>login</button>
 	</form>

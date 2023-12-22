@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.itbank.model.BoardDAO;
 import com.itbank.model.vo.AccountVO;
 import com.itbank.model.vo.BoardVO;
-import com.itbank.model.vo.RecommendVO;
 
 @Service
 public class BoardService {
@@ -80,15 +79,6 @@ public class BoardService {
 	// 마이페이지 기능
 	public List<BoardVO> getMyBoardList(AccountVO user) {
 		return dao.selectMyBoardList(user);
-	}
-
-	// 추천
-	public int selectRecommend(int board_idx, String recommender) {
-		return dao.selectRecommend(board_idx, recommender);
-	}
-
-	public int selectRecCnt(int board_idx, int good) {
-		return dao.selectRecCnt(board_idx, good);
 	}
 
 }

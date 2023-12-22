@@ -51,4 +51,5 @@ public class RESTController {
 	public String algoEx() {
 		return "redirect:/";
 	}
+	
 }

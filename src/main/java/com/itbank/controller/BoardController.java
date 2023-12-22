@@ -3,6 +3,8 @@ package com.itbank.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,12 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.itbank.model.vo.BoardVO;
 import com.itbank.model.vo.ReplyVO;
 import com.itbank.service.BoardService;
+import com.itbank.service.RecommendService;
 import com.itbank.service.ReplyService;
 
 @Controller
 public class BoardController {
 	@Autowired private BoardService bs;
 	@Autowired private ReplyService rs;
+	@Autowired private RecommendService recs;
 	
 	// 자유 게시판
 	@GetMapping("/free")
@@ -84,15 +88,14 @@ public class BoardController {
 	}
 	
 	@GetMapping("/articles/{idx}")
-	public ModelAndView view(@PathVariable int idx) {
+	public ModelAndView view(@PathVariable int idx, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("view", bs.updateViewCount(idx));
 		mav.addObject("row", bs.getBoard(idx));
 		mav.addObject("replys", rs.getReplys(idx));
 		mav.addObject("reply", rs.countReply(idx));
-		mav.addObject("goodCnt", bs.selectRecCnt(idx, 1));
-		mav.addObject("badCnt", bs.selectRecCnt(idx, 2));
+		mav.addObject("isChecked", recs.userCheck(idx, session));
 		mav.setViewName("/board/articles");
 		
 		return mav;

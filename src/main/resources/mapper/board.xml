@@ -63,14 +63,9 @@
 
 <!-- 추천 -->
 <select id="selectRecommend"
-	resultType="int">
+	resultType="integer">
 	select good from recommend where board_idx = #{idx}
 	and recommender = #{recommender}
-</select>
-
-<select id="selectRecCnt"
-	resultType="int">
-	select count(*) as count from recommend where board_idx = #{arg0} and good = #{arg1}
 </select>
 
 </mapper>
