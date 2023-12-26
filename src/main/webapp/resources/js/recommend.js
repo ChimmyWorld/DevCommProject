@@ -3,21 +3,21 @@ const rowInt = document.querySelector('.rowInt').dataset.idx;
 function showPoint() {
     Promise.all([goodCount(), badCount()])
     .then(([goodResult, badResult]) => {
-        // Ensure that goodResult and badResult are valid numbers
+        // goodResult 및 badResult가 유효한 숫자인지 확인합니다
         const good = parseFloat(goodResult);
         const bad = parseFloat(badResult);
 
-        // Check if both good and bad are valid numbers
+        // good과 bad가 모두 유효한 숫자인지 확인합니다
         if (!isNaN(good) && !isNaN(bad)) {
             countPoint.innerHTML = good - bad;
         } else {
-            // Handle the case where either good or bad is NaN
-            countPoint.innerHTML = "Error: Invalid counts";
+            // good 또는 bad 중 하나가 NaN인 경우 처리합니다
+            countPoint.innerHTML = "Error: 유효하지 않은 카운트";
         }
     })
     .catch(error => {
-        console.error("Error fetching counts:", error);
-        countPoint.innerHTML = "Error: Failed to fetch counts";
+        console.error("카운트 검색 중 오류 발생:", error);
+        countPoint.innerHTML = "Error: 카운트 검색 실패";
     });
 };
 

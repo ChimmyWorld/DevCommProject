@@ -14,6 +14,13 @@
 	.bad {
 		color: red;
 	}
+	.profile {
+		width: 20px;
+		height: 20px;
+	}
+	.replyDate {
+		font-size: 12px;
+	}
 </style>
 </head>
 <body>
@@ -32,7 +39,15 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td>${row.writer }</td>
+			<td>
+				${row.writer }
+				<c:if test="${row.profile_img == 'default.jpg'}">
+				<img src="${cpath}/profileImg/default.jpg" class="profile">
+				</c:if>
+				<c:if test="${row.profile_img != 'default.jpg'}">
+				<img src="${cpath}/profileImg/${row.u_idx}/${row.profile_img}" class="profile">
+				</c:if>
+			</td>
 		</tr>
 		<tr>
 			<th>조회수</th>
@@ -90,15 +105,41 @@
 	<table>
 		<c:forEach var="re" items="${replys }">
 			<tr>
-				<td><pre>			
-${re.writer } | ${re.write_date }			
+				<td>
+					${re.writer }
+					<c:if test="${re.profile_img == 'default.jpg'}">
+					<img src="${cpath}/profileImg/default.jpg" class="profile">
+					</c:if>
+					<c:if test="${re.profile_img != 'default.jpg'}">
+					<img src="${cpath}/profileImg/${re.u_idx}/${re.profile_img}" class="profile">
+					</c:if>
+					<div class="replyDate">${re.write_date }</div>
+				</td>
+			</tr>
+			<tr class="commentRow" id="commentRow_${re.idx}">
+				<td>
+					<pre class="commentContent">
 ${re.contents }
-</pre></td>
-			<tr>
+					</pre>
+					<c:if test="${user.nick == re.writer }">
+						<button class="editButton" onclick="editComment(${re.idx})">수정하기</button>
+					</c:if>
+				</td>
+			</tr>
+			<tr class="editForm" id="editForm_${re.idx}" style="display: none">
+				<td>
+					<form onsubmit="saveComment(${re.idx}); return false;">
+						<textarea class="editTextArea">${re.contents}</textarea>
+						<br>
+			            <button type="submit">수정하기</button>
+			            <button type="button" onclick="cancelEdit(${re.idx})">취소</button>
+					</form>
+				</td>
+			</tr>
 		</c:forEach>
 	</table>
 	
 	<script type="text/javascript" src="${cpath }/resources/js/recommend.js"></script>
-
+	<script type="text/javascript" src="${cpath }/resources/js/replyEdit.js"></script>
 </body>
 </html>

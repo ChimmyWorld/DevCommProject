@@ -7,6 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>free.jsp</title>
+<style type="text/css">
+	.profile {
+		width: 20px;
+		height: 20px;
+	}
+</style>
 </head>
 <body>
 
@@ -17,14 +23,26 @@
 			<th>작성자</th>
 			<th>작성일</th>
 			<th>조회수</th>
+			<th>댓글수</th>
+			<th>추천수</th>
 		</tr>
 		<c:forEach var="row" items="${freeList }">
 			<tr>
 				<td><a href="${cpath }/articles/${row.idx }"> ${row.title }
 				</a></td>
-				<td>${row.writer }</td>
+				<td>
+					${row.writer }
+					<c:if test="${row.profile_img == 'default.jpg'}">
+					<img src="${cpath}/profileImg/default.jpg" class="profile">
+					</c:if>
+					<c:if test="${row.profile_img != 'default.jpg'}">
+					<img src="${cpath}/profileImg/${row.u_idx}/${row.profile_img}" class="profile">
+					</c:if>
+				</td>
 				<td>${row.write_date }</td>
 				<td>${row.view_count }</td>
+				<td>${row.reply_count }</td>
+				<td>${row.recommend_score }</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -50,7 +68,8 @@
 	<ul>
 		<li><a href="${cpath }/free?order=idx">최신순</a></li>
 		<li><a href="${cpath }/free?order=view_count">조회순</a></li>
-		<li><a href="${cpath }/free">댓글순(미구현)</a></li>
+		<li><a href="${cpath }/free?order=reply_count">댓글순</a></li>
+		<li><a href="${cpath }/free?order=recommend_score">추천순</a></li>
 	</ul>
 
 	<div>
@@ -58,7 +77,7 @@
 			<select name="keyword">
 				<option value="title">제목</option>
 				<option value="writer">작성자</option>
-				<option value="title">댓글(미구현)</option>
+				<option value="contents">내용</option>
 			</select>
 	
 			<input name="search">

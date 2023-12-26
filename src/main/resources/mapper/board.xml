@@ -3,8 +3,8 @@
 <mapper namespace="com.itbank.model.BoardDAO">
 
 	<select id="selectPreview"
-		resultType="com.itbank.model.vo.BoardVO">
-		select * from board
+		resultType="com.itbank.model.vo.Board_Count_ListVO">
+		select * from board_list_with_count
 		where type = #{idx}
 		order by idx desc
 		offset 0 rows
@@ -12,17 +12,17 @@
 	</select>
 
 	<select id="selectList" 
-			resultType="com.itbank.model.vo.BoardVO"
+			resultType="com.itbank.model.vo.Board_Count_ListVO"
 			parameterType="com.itbank.components.Paging">
-			select * from board 
+			select * from board_list_with_count
 			where type = #{type} and ${keyword} like '%${search}%' 
 			order by ${order} desc
 			offset #{offset} rows 
 			fetch first #{perCount} rows only
 	</select>
 
-	<select id="selectOne" resultType="com.itbank.model.vo.BoardVO">
-		select * from board where idx = #{idx}
+	<select id="selectOne" resultType="com.itbank.model.vo.Board_ListVO">
+		select * from board_list where idx = #{idx}
 	</select>
 
 	<insert id="insert" parameterType="com.itbank.model.vo.BoardVO">

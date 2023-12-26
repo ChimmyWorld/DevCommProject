@@ -16,6 +16,8 @@ import com.itbank.components.Paging;
 import com.itbank.model.BoardDAO;
 import com.itbank.model.vo.AccountVO;
 import com.itbank.model.vo.BoardVO;
+import com.itbank.model.vo.Board_Count_ListVO;
+import com.itbank.model.vo.Board_ListVO;
 
 @Service
 public class BoardService {
@@ -23,7 +25,7 @@ public class BoardService {
 	@Value("file:C:/img_folder/board") private Resource dir;
 
 	// 게시판 CRUD
-	public List<BoardVO> getPreview(int idx) {
+	public List<Board_Count_ListVO> getPreview(int idx) {
 		return dao.selectPreview(idx);
 	}
 
@@ -35,7 +37,7 @@ public class BoardService {
 		// 페이징 코드
 		Paging p = new Paging(idx, dao.totalBoard(type), type, order, keyword, search);
 		System.out.println(order);
-		List<BoardVO> list = dao.selectList(p);
+		List<Board_Count_ListVO> list = dao.selectList(p);
 		
 		Map<String, Object> result = new HashMap<>();
 		
@@ -45,7 +47,7 @@ public class BoardService {
 		return result;
 	}
 
-	public BoardVO getBoard(int idx) {
+	public Board_ListVO getBoard(int idx) {
 		return dao.selectOne(idx);
 	}
 
