@@ -27,13 +27,13 @@ public class BoardController {
 	@Autowired private RecommendService recs;
 	
 	// 자유 게시판
-	@GetMapping(value = { "/free", "/free/{idx}" })
-	public ModelAndView free(@PathVariable(required = false) Integer idx,
+	@GetMapping("/free")
+	public ModelAndView free(@RequestParam(name = "page", defaultValue = "1") Integer page,
 			@RequestParam(name = "order", defaultValue = "idx") String order,
 			@RequestParam(name = "keyword", defaultValue ="title") String keyword,
 			@RequestParam(name = "search", defaultValue ="") String search){
 		ModelAndView mav = new ModelAndView();
-		Map<String, Object> result = bs.getList(idx, 100, order, keyword, search);
+		Map<String, Object> result = bs.getList(page, 100, order, keyword, search);
 
 		mav.addObject("freeList", result.get("list"));
 		mav.addObject("p", result.get("p"));
@@ -48,19 +48,19 @@ public class BoardController {
 
 	@PostMapping("/free/new")
 	public String writeFree(BoardVO input) throws IOException {
-		bs.writeBoard(input);
+		int idx = bs.writeBoard(input);
 
-		return "redirect:/";
+		return "redirect:/articles/" + idx;
 	}
 
 	// 정보/팁 게시판
-	@GetMapping(value = { "/info", "/info/{idx}" })
-	public ModelAndView info(@PathVariable(required = false) Integer idx,
+	@GetMapping("/info")
+	public ModelAndView info(@RequestParam(name = "page", defaultValue = "1") Integer page,
 			@RequestParam(name = "order", defaultValue = "idx") String order,
 			@RequestParam(name = "keyword", defaultValue ="title") String keyword,
 			@RequestParam(name = "search", defaultValue ="") String search){
 		ModelAndView mav = new ModelAndView();
-		Map<String, Object> result = bs.getList(idx, 200, order, keyword, search);
+		Map<String, Object> result = bs.getList(page, 200, order, keyword, search);
 
 		mav.addObject("infoList", result.get("list"));
 		mav.addObject("p", result.get("p"));
@@ -72,22 +72,24 @@ public class BoardController {
 	public String writeInfo() {
 		return "/board/newInfo";
 	}
-
+	
+	
+	
 	@PostMapping("/info/new")
 	public String writeInfo(BoardVO input) throws IOException {
-		bs.writeBoard(input);
+		int idx = bs.writeBoard(input);
 
-		return "redirect:/";
+		return "redirect:/articles/" + idx;
 	}
 
 	// 스터디 게시판
-	@GetMapping(value = { "/study", "/study/{idx}" })
-	public ModelAndView study(@PathVariable(required = false) Integer idx,
+	@GetMapping("/study")
+	public ModelAndView study(@RequestParam(name = "page", defaultValue = "1") Integer page,
 			@RequestParam(name = "order", defaultValue = "idx") String order,
 			@RequestParam(name = "keyword", defaultValue ="title") String keyword,
 			@RequestParam(name = "search", defaultValue ="") String search){
 		ModelAndView mav = new ModelAndView();
-		Map<String, Object> result = bs.getList(idx, 300, order, keyword, search);
+		Map<String, Object> result = bs.getList(page, 300, order, keyword, search);
 
 		mav.addObject("studyList", result.get("list"));
 		mav.addObject("p", result.get("p"));
@@ -102,9 +104,9 @@ public class BoardController {
 
 	@PostMapping("/study/new")
 	public String writeStudy(BoardVO input) throws IOException {
-		bs.writeBoard(input);
+		int idx = bs.writeBoard(input);
 
-		return "redirect:/";
+		return "redirect:/articles/" + idx;
 	}
 
 	@GetMapping("/articles/{idx}")
@@ -142,11 +144,10 @@ public class BoardController {
 	}
 
 	@PostMapping("/articles/{idx}/edit")
-	public String update(BoardVO input) {
+	public String update(BoardVO input) throws IOException {
 		bs.updateBoard(input);
 
-		return "redirect:/";
-
+		return "redirect:/articles/" + input.getIdx();
 	}
 
 	@GetMapping("/articles/{idx}/delete")
@@ -156,31 +157,5 @@ public class BoardController {
 		return "redirect:/";
 	}
 
-	// QnA 게시판
-	@GetMapping(value = { "/qna", "/qna/{idx}" })
-	public ModelAndView qna(@PathVariable(required = false) Integer idx,
-			@RequestParam(name = "order", defaultValue = "idx") String order,
-			@RequestParam(name = "keyword", defaultValue ="title") String keyword,
-			@RequestParam(name = "search", defaultValue ="") String search){
-		ModelAndView mav = new ModelAndView();
-		Map<String, Object> result = bs.getList(idx, 400, order, keyword, search);
-
-		mav.addObject("qnaList", result.get("list"));
-		mav.addObject("p", result.get("p"));
-		mav.setViewName("/board/qna");
-		return mav;
-	}
-
-	@GetMapping("/qna/new")
-	public String writeQnA() {
-		return "/board/newQna";
-	}
-
-	@PostMapping("/qna/new")
-	public String writeQnA(BoardVO input) throws IOException {
-		bs.writeBoard(input);
-
-		return "redirect:/";
-	}
 
 }

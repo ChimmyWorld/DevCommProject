@@ -34,16 +34,16 @@
 	</c:if>
 
 	<ul>
-		<c:if test="${p.prev }">
-			<li><a href="${cpath}/${p.begin -1}">이전</a></li>
+		<c:if test="${p.prev}">
+			<li><a href="${cpath}/free?page=${p.begin - 1}">이전</a></li>
 		</c:if>
 
-		<c:forEach var="i" begin="${p.begin }" end="${p.end }">
-			<li><a href="${cpath }/free/${i }">${i }</a></li>
+		<c:forEach var="i" begin="${p.begin}" end="${p.end}">
+			<li><a href="${cpath}/free?page=${i}">${i}</a></li>
 		</c:forEach>
 
-		<c:if test="${p.next }">
-			<li><a href="${cpath}/${p.begin -1}">다음</a></li>
+		<c:if test="${p.next}">
+			<li><a href="${cpath}/free?page=${p.end + 1}">다음</a></li>
 		</c:if>
 	</ul>
 

@@ -3,6 +3,7 @@ package com.itbank.controller;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.itbank.model.vo.AccountVO;
@@ -32,20 +34,44 @@ public class MyPageController {
 	public void info() {}
 	
 	@PostMapping("/info")
-	public String info(AccountVO input) throws IOException{
-		as.updateProfileImg(input);
+	public String info(AccountVO input, HttpSession session) throws IOException{
+		as.updateProfileImg(input, session);
 		
 		return "myPage/info";
 	}
 	
 	@GetMapping("/articles")
-	public ModelAndView articles(HttpSession session) {
+	public ModelAndView articles(HttpSession session,
+			@RequestParam(name = "page", defaultValue = "1") Integer page,
+			@RequestParam(name = "type", defaultValue = "") Integer type,
+			@RequestParam(name = "order", defaultValue = "idx") String order,
+			@RequestParam(name = "keyword", defaultValue ="title") String keyword,
+			@RequestParam(name = "search", defaultValue ="") String search) {
 		ModelAndView mav = new ModelAndView();
-		
 		AccountVO user = (AccountVO) session.getAttribute("user");
 		
-		mav.addObject("myBoardList", bs.getMyBoardList(user));
-		mav.addObject("myReplyList", rs.getMyReplys(user));
+		Map<String, Object> result = bs.getMyBoardList(page, type, order, keyword, search, user);
+		
+		mav.addObject("myBoardList", result.get("list"));
+		mav.addObject("p", result.get("p"));
+		
+		return mav;
+	}
+	
+	@GetMapping("/replies")
+	public ModelAndView replies(HttpSession session,
+			@RequestParam(name = "page", defaultValue = "1") Integer page,
+			@RequestParam(name = "type", defaultValue = "") Integer type,
+			@RequestParam(name = "order", defaultValue = "idx") String order,
+			@RequestParam(name = "keyword", defaultValue ="contents") String keyword,
+			@RequestParam(name = "search", defaultValue ="") String search) {
+		ModelAndView mav = new ModelAndView();
+		AccountVO user = (AccountVO) session.getAttribute("user");
+		
+		Map<String, Object> result = rs.getMyReplys(page, type, order, keyword, search, user);
+		
+		mav.addObject("myReplyList", result.get("list"));
+		mav.addObject("p", result.get("p"));
 		
 		return mav;
 	}

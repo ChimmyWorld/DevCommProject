@@ -34,23 +34,23 @@
 	</c:if>
 
 	<ul>
-		<c:if test="${p.prev }">
-			<li><a href="${cpath}/${p.begin -1}">이전</a></li>
+		<c:if test="${p.prev}">
+			<li><a href="${cpath}/info?page=${p.begin - 1}">이전</a></li>
 		</c:if>
 
-		<c:forEach var="i" begin="${p.begin }" end="${p.end }">
-			<li><a href="${cpath }/free/${i }">${i }</a></li>
+		<c:forEach var="i" begin="${p.begin}" end="${p.end}">
+			<li><a href="${cpath}/info?page=${i}">${i}</a></li>
 		</c:forEach>
 
-		<c:if test="${p.next }">
-			<li><a href="${cpath}/${p.begin -1}">다음</a></li>
+		<c:if test="${p.next}">
+			<li><a href="${cpath}/info?page=${p.end + 1}">다음</a></li>
 		</c:if>
 	</ul>
 
 	<ul>
-		<li><a href="${cpath }/free?order=idx">최신순</a></li>
-		<li><a href="${cpath }/free?order=view_count">조회순</a></li>
-		<li><a href="${cpath }/free">댓글순(미구현)</a></li>
+		<li><a href="${cpath }/info?order=idx">최신순</a></li>
+		<li><a href="${cpath }/info?order=view_count">조회순</a></li>
+		<li><a href="${cpath }/info">댓글순(미구현)</a></li>
 	</ul>
 	
 	<div>

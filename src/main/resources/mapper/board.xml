@@ -37,7 +37,7 @@
 
 	<update id="update" parameterType="com.itbank.model.vo.BoardVO">
 		update board
-		set title=#{title}, contents=#{contents}
+		set title=#{title}, contents=#{contents}, article_img=#{article_img, jdbcType=VARCHAR}
 		where idx=#{idx}
 	</update>
 
@@ -48,12 +48,16 @@
 	</update>
 
 	<select id="selectMyBoardList"
-		resultType="com.itbank.model.vo.BoardVO">
-		select * from board where writer = #{nick}
-		order by idx desc
+		resultType="com.itbank.model.vo.BoardVO"
+		parameterType="hashmap">
+		select * from board 
+			where writer = #{user.nick} and type like '%${p.type}%' and ${p.keyword} like '%${p.search}%' 
+			order by ${p.order} desc
+			offset #{p.offset} rows 
+			fetch first #{p.perCount} rows only
 	</select>
 
-	<select id="selectIdx" resultType="string">
+	<select id="selectIdx" resultType="int">
 		select idx from board
 		order by idx desc
 		fetch first rows only
@@ -64,6 +68,13 @@
 		resultType="int">
 		select count(*) from board
 		where type = #{type}
+	</select>
+	
+	<select id="totalMyBoard"
+		parameterType="com.itbank.model.vo.BoardVO"
+		resultType="int">
+		select count(*) from board
+		where writer = #{nick}
 	</select>
 
 <!-- 추천 -->
