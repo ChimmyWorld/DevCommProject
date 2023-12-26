@@ -73,4 +73,9 @@
 		profile_img = #{profile_img}
 		where idx = #{idx}
 	</update>
+	
+	<update id="setProfileImgDefault"
+		parameterType="int">
+		update account set profile_img = 'default.jpg' where idx = #{idx}	
+	</update>
 </mapper>

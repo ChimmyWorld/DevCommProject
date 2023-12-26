@@ -17,7 +17,7 @@
 </style>
 </head>
 <body>
-	<h1>게시글</h1>
+	<h1>QnA</h1>
 	<table>
 		<tr>
 			<th class="rowInt" data-idx="${row.idx }">제목</th>
@@ -57,8 +57,8 @@
 	</div>
 
 	<c:if test="${row.writer == user.nick }">
-		<a href="${cpath }/articles/${row.idx }/edit"><button>수정</button></a>
-		<a href="${cpath }/articles/${row.idx }/delete"><button>삭제</button></a>
+		<a href="${cpath }/qna/${row.idx }/edit"><button>수정</button></a>
+		<a href="${cpath }/qna/${row.idx }/delete"><button>삭제</button></a>
 	</c:if>
 
 	<form method="POST">
@@ -84,7 +84,7 @@
 		<button>댓글 작성</button>
 	</form>
 
-	<h5>댓글 | 총 ${reply }개</h5>
+	<h5>답변 | 총 ${reply }개</h5>
 	<hr>
 
 	<table>

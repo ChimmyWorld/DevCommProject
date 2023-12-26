@@ -2,9 +2,15 @@ package com.itbank.controller;
 
 import java.security.NoSuchAlgorithmException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itbank.model.vo.AccountVO;
@@ -50,6 +56,16 @@ public class RESTController {
 	@ExceptionHandler(NoSuchAlgorithmException.class)
 	public String algoEx() {
 		return "redirect:/";
+	}
+	
+	@PatchMapping("/myPage/info/{idx}")
+	public int setDefaultImage(AccountVO input, HttpSession session) {
+		System.out.println(input);
+		System.out.println(input.getIdx());
+		
+		int row = as.setProfileImgDefault(input.getIdx(), session);
+
+		return row;
 	}
 	
 }

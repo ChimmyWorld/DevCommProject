@@ -206,7 +206,7 @@ public class AccountService {
 		return acc;
 	}
 
-	public int updateProfileImg(AccountVO input) throws IOException{
+	public int updateProfileImg(AccountVO input, HttpSession session) throws IOException{
 		MultipartFile file = input.getUpload();
 		// 파일이 업로드되었을 때만 아래 로직을 수행
 		if (file != null && !file.isEmpty()) {
@@ -225,6 +225,11 @@ public class AccountService {
 	        // 4. 3번의 폴더에 이미지를 업로드
 	        File dst = new File(newDir, "profile.jpg");
 	        file.transferTo(dst);
+	        
+	        // 5. 세션에 있는 프로필 이미지 경로를 최신화
+	        input = (AccountVO) session.getAttribute("user");
+			input = dao.selectOne(input);
+			session.setAttribute("user", input);
 
 	        return row;
 	    } else {
@@ -232,5 +237,15 @@ public class AccountService {
 	    }
 	}
 	
-	
+	public int setProfileImgDefault(int idx, HttpSession session) {
+		int row = dao.setProfileImgDefault(idx);
+
+		if (row == 1) {
+			// 세션에 있는 프로필 이미지 경로를 최신화
+			AccountVO input = (AccountVO) session.getAttribute("user");
+			input = dao.selectOne(input);
+			session.setAttribute("user", input);
+		}
+		return row;
+	}
 }

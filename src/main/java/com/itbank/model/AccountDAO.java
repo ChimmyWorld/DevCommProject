@@ -27,5 +27,7 @@ public interface AccountDAO {
 	
 	// 프로필 등록 관련 기능
 	String selectIdx();
-	int updateProfileImg(AccountVO input); 
+	int updateProfileImg(AccountVO input);
+
+	int setProfileImgDefault(int idx); 
 }

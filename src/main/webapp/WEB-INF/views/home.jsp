@@ -97,7 +97,7 @@
 		</tr>
 		<c:forEach var="row" items="${qnaPreview }">
 		<tr>
-			<td><a href="${cpath }/articles/${row.idx }">
+			<td><a href="${cpath }/qna/${row.idx }">
 			${row.title }
 			</a></td>
 			<td>${row.writer }</td>
