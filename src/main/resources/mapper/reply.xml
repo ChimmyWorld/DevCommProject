@@ -14,16 +14,37 @@
 			values(default, #{idx}, #{type}, #{contents}, #{writer}, default)
 	</insert>
 	
+	<delete id="deleteReply"
+		parameterType="int">
+		delete reply where idx = ${idx}
+	</delete>
+	
 	<select id="countOne"
 			resultType="int"
 			parameterType="int">
 		select count(*) from reply where board_idx = #{idx}
 	</select>
 	
-	<select id="selectMyReplyAll"
+	<select id="selectMyReplyList"
+		resultType="com.itbank.model.vo.ReplyVO"
+		parameterType="hashmap">
+		select * from reply 
+			where writer = #{user.nick} and type like '%${p.type}%' and ${p.keyword} like '%${p.search}%' 
+			order by ${p.order} desc
+			offset #{p.offset} rows 
+			fetch first #{p.perCount} rows only
+	</select>
+	
+	<select id="selectBoardIdx"
 		resultType="com.itbank.model.vo.ReplyVO">
-		select * from reply where writer = #{nick}
-			order by idx desc
+		select type, board_idx from reply where idx = #{idx}
+	</select>
+	
+	<select id="totalMyReply"
+		parameterType="com.itbank.model.vo.BoardVO"
+		resultType="int">
+		select count(*) from reply
+		where writer = #{nick}
 	</select>
 	
 	<update id="updateReply"

@@ -1,6 +1,7 @@
 package com.itbank.model;
 
 import java.util.List;
+import java.util.Map;
 
 import com.itbank.components.Paging;
 import com.itbank.model.vo.AccountVO;
@@ -18,10 +19,11 @@ public interface BoardDAO {
 	int delete(int idx);
 	int update(BoardVO input);
 	int countUp(int idx);
-	String selectIdx();
+	int selectIdx();
 	Integer totalBoard(Integer type);
 	
 	// 마이페이지
-	List<BoardVO> selectMyBoardList(AccountVO user);
+	List<BoardVO> selectMyBoardList(Map<String, Object> param);
+	Integer totalMyBoard(AccountVO user);
 
 }

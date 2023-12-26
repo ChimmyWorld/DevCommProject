@@ -11,7 +11,7 @@
 <body>
 	<h1>수정</h1>
 	
-	<form method="POST">
+	<form method="POST" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<th>제목</th>
@@ -32,6 +32,10 @@
 			<tr>
 				<th>작성일</th>
 				<td>${row.write_date }</td>
+			</tr>
+			<tr>
+				<th>첨부파일</th>
+				<td><input name="upload" type="file"  accept="image/*"></td>
 			</tr>
 		</table>
 		

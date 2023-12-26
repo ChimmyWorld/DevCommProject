@@ -36,6 +36,8 @@
 		<input name="idx" type="hidden" value="${user.idx }">
 		<button>변경</button>
 	</form>
+	
+	<button class="setDefault">삭제</button>
 
 	<table>
 		<tr>
@@ -51,5 +53,8 @@
 			<td>${user.join_date }</td>
 		</tr>
 	</table>
+	
+	<script type="text/javascript" src="${cpath }/resources/js/setDefault.js"></script>
+
 </body>
 </html>

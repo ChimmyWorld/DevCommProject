@@ -14,17 +14,10 @@
 	.bad {
 		color: red;
 	}
-	.profile {
-		width: 20px;
-		height: 20px;
-	}
-	.replyDate {
-		font-size: 12px;
-	}
 </style>
 </head>
 <body>
-	<h1>게시글</h1>
+	<h1>QnA</h1>
 	<table>
 		<tr>
 			<th class="rowInt" data-idx="${row.idx }">제목</th>
@@ -39,15 +32,7 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td>
-				${row.writer }
-				<c:if test="${row.profile_img == 'default.jpg'}">
-				<img src="${cpath}/profileImg/default.jpg" class="profile">
-				</c:if>
-				<c:if test="${row.profile_img != 'default.jpg'}">
-				<img src="${cpath}/profileImg/${row.u_idx}/${row.profile_img}" class="profile">
-				</c:if>
-			</td>
+			<td>${row.writer }</td>
 		</tr>
 		<tr>
 			<th>조회수</th>
@@ -72,8 +57,8 @@
 	</div>
 
 	<c:if test="${row.writer == user.nick }">
-		<a href="${cpath }/articles/${row.idx }/edit"><button>수정</button></a>
-		<a href="${cpath }/articles/${row.idx }/delete"><button>삭제</button></a>
+		<a href="${cpath }/qna/${row.idx }/edit"><button>수정</button></a>
+		<a href="${cpath }/qna/${row.idx }/delete"><button>삭제</button></a>
 	</c:if>
 
 	<form method="POST">
@@ -99,48 +84,25 @@
 		<button>댓글 작성</button>
 	</form>
 
-	<h5>댓글 | 총 ${reply }개</h5>
+	<h5>답변 | 총 ${reply }개</h5>
 	<hr>
 
 	<table>
 		<c:forEach var="re" items="${replys }">
 			<tr>
-				<td>
-					${re.writer }
-					<c:if test="${re.profile_img == 'default.jpg'}">
-					<img src="${cpath}/profileImg/default.jpg" class="profile">
-					</c:if>
-					<c:if test="${re.profile_img != 'default.jpg'}">
-					<img src="${cpath}/profileImg/${re.u_idx}/${re.profile_img}" class="profile">
-					</c:if>
-					<div class="replyDate">${re.write_date }</div>
-				</td>
-			</tr>
-			<tr class="commentRow" id="commentRow_${re.idx}">
-				<td>
-					<pre class="commentContent">
-${re.contents }
-					</pre>
-					<c:if test="${user.nick == re.writer }">
-						<button class="editButton" onclick="editComment(${re.idx})">수정하기</button>
-            <a href="${cpath }/reply/${re.idx }/delete"><button>삭제</button></a>
-					</c:if>
-				</td>
-			</tr>
-			<tr class="editForm" id="editForm_${re.idx}" style="display: none">
-				<td>
-					<form onsubmit="saveComment(${re.idx}); return false;">
-						<textarea class="editTextArea">${re.contents}</textarea>
-						<br>
-			            <button type="submit">수정하기</button>
-			            <button type="button" onclick="cancelEdit(${re.idx})">취소</button>
-					</form>
-				</td>
-			</tr>
+				<td><pre>			
+${re.writer } | ${re.write_date } 	
+	<c:if test="${re.writer == user.nick }">
+		<a href="${cpath }/reply/${re.idx }/delete"><button>삭제</button></a>
+	</c:if>
+${re.contents }     
+</pre></td>
+
+			<tr>
 		</c:forEach>
 	</table>
 	
 	<script type="text/javascript" src="${cpath }/resources/js/recommend.js"></script>
-	<script type="text/javascript" src="${cpath }/resources/js/replyEdit.js"></script>
+
 </body>
 </html>
