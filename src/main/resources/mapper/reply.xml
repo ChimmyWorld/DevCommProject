@@ -2,27 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itbank.model.ReplyDAO">
 	<select id="selectReplyAll"
-			resultType="com.itbank.model.vo.ReplyVO"
+			resultType="com.itbank.model.vo.Reply_ListVO"
 			parameterType="int">
-		select * from reply
+		select * from reply_list
 			where board_idx = #{idx}
 	</select>
 	
 	<insert id="insertReply"
 		parameterType="com.itbank.model.vo.ReplyVO">
-		insert into reply values(default, #{idx}, #{type}, #{contents}, #{writer}, default)
+		insert into reply 
+			values(default, #{idx}, #{type}, #{contents}, #{writer}, default)
 	</insert>
 	
 	<select id="countOne"
 			resultType="int"
 			parameterType="int">
-			select count(*) from reply where board_idx = #{idx}
+		select count(*) from reply where board_idx = #{idx}
 	</select>
 	
 	<select id="selectMyReplyAll"
 		resultType="com.itbank.model.vo.ReplyVO">
 		select * from reply where writer = #{nick}
-		order by idx desc
+			order by idx desc
 	</select>
+	
+	<update id="updateReply"
+		parameterType="com.itbank.model.vo.ReplyVO">
+		update reply
+			set contents = #{contents, jdbcType=VARCHAR}
+			where idx = #{idx}	
+	</update>
 	
 </mapper>
