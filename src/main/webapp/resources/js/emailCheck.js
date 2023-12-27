@@ -5,14 +5,14 @@ email.onblur = () => {
 	.then(response => response.json())
 	.then(data => {
 		if(data.email != null) {
-			h6[4].innerHTML = '이미 사용되고 있는 이메일입니다.';
-			h6[4].style.color = 'red';
+			h6[5].innerHTML = '이미 사용되고 있는 이메일입니다.';
+			h6[5].style.color = 'red';
 			
 			email.value = '';
 			email.focus();
 		}
 		else {
-			h6[4].innerHTML = '';
+			h6[5].innerHTML = '';
 		}
 	})
 }

@@ -59,7 +59,7 @@ public class AccountController {
 		
 		model.addAttribute("map", as.signUp(input));
 		
-		return "login/success";
+		return "login/signUpSuccess";
 	}
 	
 	@GetMapping("/findId")
