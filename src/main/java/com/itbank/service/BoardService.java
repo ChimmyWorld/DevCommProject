@@ -38,7 +38,7 @@ public class BoardService {
 		Paging p = new Paging(idx, dao.totalBoard(type), type, order, keyword, search);
 		System.out.println(order);
 		List<Board_Count_ListVO> list = dao.selectList(p);
-		
+
 		Map<String, Object> result = new HashMap<>();
 
 		result.put("p", p);

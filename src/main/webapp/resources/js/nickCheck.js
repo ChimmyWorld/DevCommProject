@@ -5,14 +5,14 @@ nick.onblur = () => {
 	.then(response => response.json())
 	.then(data => {
 		if(data.nick != null) {
-			h6[3].innerHTML = '이미 사용되고 있는 닉네임입니다.';
-			h6[3].style.color = 'red';
+			h6[4].innerHTML = '이미 사용되고 있는 닉네임입니다.';
+			h6[4].style.color = 'red';
 			
 			nick.value = '';
 			nick.focus();
 		}
 		else {
-			h6[3].innerHTML = '';
+			h6[4].innerHTML = '';
 		}
 	})
 }
