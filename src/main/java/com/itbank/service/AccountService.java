@@ -70,7 +70,7 @@ public class AccountService {
 			msg = "입력 정보를 다시 확인해 주세요";
 		}
 		else {
-			msg = "환영합니다! " + input.getNick() + "님";
+			msg = input.getNick();
 		}
 		
 		System.out.println(row);
