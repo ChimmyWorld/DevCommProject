@@ -7,6 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>qna.jsp</title>
+<style type="text/css">
+.profile {
+	width: 20px;
+	height: 20px;
+}
+</style>
 </head>
 <body>
 	<h1>질문게시판</h1>
@@ -16,13 +22,25 @@
 			<th>작성자</th>
 			<th>작성일</th>
 			<th>조회수</th>
+			<th>댓글수</th>
+			<th>추천수</th>
 		</tr>
 		<c:forEach var="row" items="${qnaList }">
 			<tr>
-				<td><a href="${cpath }/qna/${row.idx }"> ${row.title } </a></td>
-				<td>${row.writer }</td>
+				<td><a href="${cpath }/qna/${row.idx }"> ${row.title }
+				</a></td>
+				<td>${row.writer } <c:if
+						test="${row.profile_img == 'default.jpg'}">
+						<img src="${cpath}/profileImg/default.jpg" class="profile">
+					</c:if> <c:if test="${row.profile_img != 'default.jpg'}">
+						<img src="${cpath}/profileImg/${row.u_idx}/${row.profile_img}"
+							class="profile">
+					</c:if>
+				</td>
 				<td>${row.write_date }</td>
 				<td>${row.view_count }</td>
+				<td>${row.reply_count }</td>
+				<td>${row.recommend_score }</td>
 			</tr>
 		</c:forEach>
 	</table>
