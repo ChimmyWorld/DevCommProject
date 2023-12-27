@@ -11,11 +11,13 @@
 	.profile {
 		width: 20px;
 		height: 20px;
-	}
 </style>
-</head>
-<body>
+<link rel="stylesheet" href="${cpath }/resources/css/header.css">
 
+</head>
+
+<body>
+	
 	<h1>자유게시판</h1>
 	<table>
 		<tr>
@@ -64,7 +66,7 @@
 			<li><a href="${cpath}/free?page=${p.end + 1}">다음</a></li>
 		</c:if>
 	</ul>
-
+	
 	<ul>
 		<li><a href="${cpath }/free?order=idx">최신순</a></li>
 		<li><a href="${cpath }/free?order=view_count">조회순</a></li>
