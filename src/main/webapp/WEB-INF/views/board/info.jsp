@@ -6,7 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>tip.jsp</title>
+<title>info.jsp</title>
+<style type="text/css">
+.profile {
+	width: 20px;
+	height: 20px;
+}
+</style>
 </head>
 <body>
 
@@ -17,14 +23,25 @@
 			<th>작성자</th>
 			<th>작성일</th>
 			<th>조회수</th>
+			<th>댓글수</th>
+			<th>추천수</th>
 		</tr>
 		<c:forEach var="row" items="${infoList }">
 			<tr>
 				<td><a href="${cpath }/articles/${row.idx }"> ${row.title }
 				</a></td>
-				<td>${row.writer }</td>
+				<td>${row.writer } <c:if
+						test="${row.profile_img == 'default.jpg'}">
+						<img src="${cpath}/profileImg/default.jpg" class="profile">
+					</c:if> <c:if test="${row.profile_img != 'default.jpg'}">
+						<img src="${cpath}/profileImg/${row.u_idx}/${row.profile_img}"
+							class="profile">
+					</c:if>
+				</td>
 				<td>${row.write_date }</td>
 				<td>${row.view_count }</td>
+				<td>${row.reply_count }</td>
+				<td>${row.recommend_score }</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -52,17 +69,15 @@
 		<li><a href="${cpath }/info?order=view_count">조회순</a></li>
 		<li><a href="${cpath }/info">댓글순(미구현)</a></li>
 	</ul>
-	
+
 	<div>
 		<form>
 			<select name="keyword">
 				<option value="title">제목</option>
 				<option value="writer">작성자</option>
 				<option value="title">댓글(미구현)</option>
-			</select>
-	
-			<input name="search">
-		
+			</select> <input name="search">
+
 			<button>검색</button>
 		</form>
 	</div>
