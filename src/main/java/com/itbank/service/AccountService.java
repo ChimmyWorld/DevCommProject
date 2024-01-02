@@ -86,6 +86,7 @@ public class AccountService {
 		AccountVO account = dao.findID(email);
 		int row = 0;
 		String msg = "";
+		String user = "";
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		if(account == null) {
@@ -96,9 +97,11 @@ public class AccountService {
 		}
 		else {
 			row = 1;
-			msg = "회원님의 ID는 " + account.getUserid() + "입니다";
+			msg = "ID는 " + account.getUserid() + "입니다";
+			user = account.getNick();
 			map.put("row", row);
 			map.put("msg", msg);
+			map.put("user", user);
 		}
 		
 		return map;
@@ -109,6 +112,7 @@ public class AccountService {
 		int row = 0;
 		String msg = "";
 		String newPW = "";
+		String user = "";
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		if(account == null) {
@@ -120,9 +124,11 @@ public class AccountService {
 		else {
 			row = 1;
 			newPW = RandomStringUtils.randomAlphanumeric(6);
-			msg = "회원님의 임시 비밀번호는 " + newPW + "입니다";
+			msg = newPW;
+			user = account.getNick();
 			map.put("row", row);
 			map.put("msg", msg);
+			map.put("user", user);
 			
 			account.setUserpw(hash.getHash(newPW));
 			row = dao.updatePW(account);
@@ -149,16 +155,20 @@ public class AccountService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		int row = 0;
 		String msg = "";
+		String user = "";
 		
 		row = dao.updatePW(input);
 		
+		user = dao.getNick(input);
+		
 		if(row == 1) {
-			msg = "패스워드 변경 완료";
+			msg = "비밀번호 변경이 성공적으로 되었습니다";
 			map.put("row", row);
 			map.put("msg", msg);
+			map.put("user", user);
 		}
 		else {
-			msg = "패스워드 변경 실패. SQL이나 Data 재확인";
+			msg = "패스워드 변경 실패 하였습니다. Data 재확인 부탁드립니다";
 			map.put("row", row);
 			map.put("msg", msg);
 		}

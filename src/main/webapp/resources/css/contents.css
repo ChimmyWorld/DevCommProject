@@ -4,24 +4,37 @@
     display: flex;
     justify-content: center;
     width: 700px;
-    background-image: url(/Home/img/board1.png);
+    z-index: 1;
+    margin-bottom: 0px;
 }
+.title1img {
+    position: relative;
+    left: 5px;
+}
+
+
 .title3 {
     position: relative;
     left: 400px;
     display: flex;
     justify-content: center;
     width: 700px;
-    background-image: url(/Home/img/tip1.png);
 }
-
+.title3img {
+    position: relative;
+    left: 7px;
+    top: 3px;
+}
 .title4 {
     position: relative;
     left: 400px;
     display: flex;
     justify-content: center;
     width: 700px;
-    background-image: url(/Home/img/book1.jpg);
+}
+.title4img {
+    position: relative;
+    left: 7px;
 }
 
 .write-btn {
@@ -104,7 +117,17 @@ input {
     position: relative;
     left: 15px;
     bottom:80px;
+    height: 20px;
 }
+.contentusersinfo ul {
+    list-style: none;
+    position: relative;
+    left: 20px;
+    bottom:80px;
+    height: 20px;
+    list-style: none;
+}
+
 .cominfo ul{
     list-style: none;
 }
@@ -133,7 +156,6 @@ input {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -143,7 +165,6 @@ input {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -190,6 +211,7 @@ input {
     padding-bottom: 100px;
     margin: -50px;
     
+    
 }
 .recommendtable_rply {
     border: 1px solid #aaaaaa;
@@ -210,7 +232,6 @@ input {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -221,7 +242,6 @@ input {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -231,7 +251,6 @@ input {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 
@@ -254,8 +273,10 @@ input {
     padding: 10px 20px;
 }
 textarea {
-    width: 775px;
-    height: 70px;
+    min-width: 775px;
+    max-width: 775px;
+    min-height: 70px;
+    max-height: 70px;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #bbb;
@@ -267,7 +288,8 @@ textarea {
     position: relative;
     display: inline-block;
     left: 760px;
-    bottom: 190px;
+    bottom: 170px;
+    width: 50px;
   }
   .dropdown_rply h2 {
       color: black;
@@ -308,7 +330,7 @@ textarea {
     position: relative;
     display: inline-block;
     left: 1200px;
-    bottom: 170px;
+    bottom: 140px;
   }
   .dropdown_modify h2 {
       color: black;
@@ -344,3 +366,11 @@ textarea {
   .dropdown_modify:hover .dropdown_modifymenu {
     display: block;
   }
+ .good {
+	color: rgb(0, 144, 249);
+}
+
+.bad {
+	color: rgb(244, 124, 124);
+}
+	  

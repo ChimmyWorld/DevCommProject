@@ -5,41 +5,23 @@ body {
     padding: 300px 0px;
   
 }
-header {
+.successimg {
+    display: flex;
+    justify-content: center;
     position: relative;
-    left: 590px;
-    top: 100px;
+    bottom: 200px;
 }
 div h1 {
-    position: relative;
-    bottom: 210px;
-    left: 5px;
-    height: 10px;
-}
-.singUPmessage ul{
-    display: flex;
-    list-style-type: none;
-}
-.singUPmessage li {
-    color: rgb(77, 120, 238);
-    padding: 0px;
-}
-.infomessage li{
-    list-style: none;
-    color: #aaaaaa;
-    position: relative;
-    right: 64px;
-    bottom: 190px;
-    
-}
-.infomessage ul {
-    justify-content: center;
+   display: flex;
+   justify-content: center;
+   position: relative;
+   bottom: 180px;
 }
 
 .w-btn {
     position: relative;
-    bottom: 190px;
-    left: 25px;
+    bottom: 120px;
+    left: 680px;
     margin: 20px;
     height: 45px;
     border: none;
@@ -47,7 +29,6 @@ div h1 {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -57,7 +38,6 @@ div h1 {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -70,8 +50,36 @@ div h1 {
     border: 3px solid #0090f9;
     color: #6e6e6e;
 }
-.successimg {
+
+.q-btn {
     position: relative;
-    bottom: 230px;
-    left: 10px;
+    bottom: 120px;
+    left: 680px;
+    margin: 20px;
+    height: 45px;
+    border: #aaaaaa;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.q-btn-outline {
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.q-btn-blue {
+    background-color: white(192, 188, 188, 0.678);
+    color: black;
+}
+.q-btn-blue-outline {
+    border: 3px solid #aaaaaa;
+    color: black;
 }

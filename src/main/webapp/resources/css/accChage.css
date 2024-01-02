@@ -23,11 +23,12 @@
     position: relative;
     bottom: 1500px;
     padding: 10px;
-    line-height: 5em;    
+    line-height: 5em; 
+    
 }
 .mylist ul{
     list-style: none;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 1000;
 }
 .f-line {
@@ -47,14 +48,12 @@
     position: relative;
     margin: 20px;
     height: 45px;
-    left: 1240px;
-    bottom: 1800px;
+    left: 600px;
     border: none;
     display: inline-block;
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }

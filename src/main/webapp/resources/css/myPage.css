@@ -7,7 +7,7 @@
 }
 .mylist ul{
     list-style: none;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 1000;
 }
 .f-line {
@@ -47,41 +47,127 @@
     left: 1200px;
     bottom: 2100px;    
 }
-.mypage-btn {
-    position: relative;
-    bottom: 1900px;
-    left: 800px;
-    border: none;
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    width: 150px;
-}
 
-.mypage-btn-outline {
-    position: relative;
-    padding: 15px 30px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.mypage-btn-blue {
-    background-color: #0090f9;
-    color: #d4dfe6;
-}
-.mypage-btn-blue-outline {
-    border: 3px solid #0090f9;
-    color: #6e6e6e;
-}
 .hhr {
     position: relative;
     bottom: 10px;
     border: 1px solid #aaaaaa;
+}
+.login {
+    position: relative;
+    bottom: 1750px;
+    left: 450px;
+}
+.login img {
+    border-radius: 30px;
+    position: relative;
+    margin: 0 200px;
+    left: 550px;
+    bottom: 300px;
+}
+.login li {
+    list-style: none;
+}
+.login input {
+    width: 250px;
+    height: 35px;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 15px;
+    outline: none;
+    padding-left: 10px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    left: 743px;
+    bottom: 295px;
+}
+input[type=file]::file-selector-button {
+    position: relative;
+    right: 10.5px;
+    bottom: 1px;
+  width: 100px;
+  height: 37px;
+  background: #fff;
+  border: 1px solid rgb(77,77,77);
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    background: rgb(77,77,77);
+    color: #fff;
+  }
+}
+
+.changeimg {
+    width: 250px;
+    height: 250px;
+
+}
+
+.r-btn {
+    position: relative;
+    height: 38px;
+    border: #aaaaaa;
+    display: inline-block;
+    width: 70px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    left: 670px;
+    bottom: 250px;
+    cursor: pointer;
+    
+}
+
+.r-btn-outline {
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.r-btn-blue {
+    background-color: white(192, 188, 188, 0.678);
+    color: black;
+}
+.r-btn-blue-outline {
+    border: 3px solid #aaaaaa;
+    color: black;
+}
+
+.setDefault {
+    position: relative;
+    bottom: 250px;
+    left: 520px;
+    height: 38px;
+    width: 70px;
+    padding: 10px 20px;
+    border: none;
+    display: inline-block;
+    border-radius: 30px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.setDefault-outline {
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.setDefault-blue {
+    background-color: #0090f9;
+    color: #d4dfe6;
+}
+.setDefault-blue-outline {
+    border: 3px solid #0090f9;
+    color: #6e6e6e;
 }

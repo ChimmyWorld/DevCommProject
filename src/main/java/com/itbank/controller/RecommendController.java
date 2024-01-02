@@ -37,13 +37,6 @@ public class RecommendController {
 		
 		return count;
 	}
-	
-	@GetMapping("articles/recommend/user")
-	public int userCheck(RecommendVO input, HttpSession session) {
-		int isChecked = rs.userCheck(input, session);
-		
-		return isChecked;
-	}
 
 	@PostMapping("articles/recommend/recommendGood")
 	public ResponseEntity<Integer> recommendGood(@RequestBody RecommendVO input, HttpSession session) {
@@ -76,13 +69,6 @@ public class RecommendController {
 		int count = rs.getGood(input);
 		
 		return count;
-	}
-	
-	@GetMapping("qna/recommend/user")
-	public int userCheckQna(RecommendVO input, HttpSession session) {
-		int isChecked = rs.userCheck(input, session);
-		
-		return isChecked;
 	}
 
 	@PostMapping("qna/recommend/recommendGood")

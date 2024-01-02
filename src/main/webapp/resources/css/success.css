@@ -4,30 +4,8 @@ body {
     height: 3000px;
     
 }
-.login li{
-    list-style: none;
-}
-.loginchar {
-    color: #aaaaaa;
-}
-.login input {
-    width: 500px;
-    height: 32px;
-    font-size: 15px;
-    border: 0;
-    border-radius: 15px;
-    outline: none;
-    padding-left: 10px;
-    background-color: rgb(233, 233, 233);
-}
-.mainmsg {
-    color: #aaaaaa;
-}
+
 .loginheader div{
-    display: flex;
-    justify-content: center;
-}
-.login {
     display: flex;
     justify-content: center;
 }
@@ -49,26 +27,34 @@ body {
     line-height: 0px;
     margin: 0px 16px;
 }
-.accfind {
-    position: relative;
-    bottom: 60px;
-    left: 950px;
-    color: rgba(0, 0, 14, 0.993);
-}
-.singUp ul{
-    display: flex;
-    list-style: none;
-    justify-content: center;
-}
 
+
+.headerinfo ul{
+    justify-content: center;
+    color: #aaaaaa;
+    list-style: none;
+}
+.headerinfo li {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 2px 0px;
+}
+h4 {
+    height: 10px;
+    margin: 30px;
+}
 
 .w-btn {
     position: relative;
-    width: 514px;
-    height: 35px;
-    top: 35px;
+    top: 50px;
+    left: 660px;
     border: none;
+    margin: 20px;
+    height: 45px;
+    width: 150px;
     display: inline-block;
+    padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
     text-decoration: none;
@@ -91,4 +77,16 @@ body {
 .w-btn-blue-outline {
     border: 3px solid #0090f9;
     color: #6e6e6e;
+}
+.temporarypas {
+    display: flex;
+    justify-content: center;
+}
+.temporarypas ul {
+    list-style: none;
+    display: flex;
+}
+.temporarypas div{
+    font-weight: bolder;
+    margin: 0 10px;
 }

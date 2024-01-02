@@ -7,7 +7,7 @@
 }
 .mylist ul{
     list-style: none;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 1000;
 }
 .f-line {
@@ -39,4 +39,19 @@
     position: relative;
     bottom: 10px;
     border: 1px solid #aaaaaa;
+}
+.t-btn {      
+    position: relative;
+    margin: 20px;
+    height: 45px;
+    right: 110px;
+    top: 40px;
+    width: 150px;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-family: "paybooc-Light", sans-serif;
+    text-decoration: none;
+    font-weight: 600;
 }

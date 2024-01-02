@@ -8,9 +8,13 @@ body {
     list-style: none;
 }
 .loginchar {
+    position: relative;
+    left: 14px;
     color: #aaaaaa;
 }
 .login input {
+    position: relative;
+    left: 14px;
     width: 500px;
     height: 32px;
     font-size: 15px;
@@ -75,9 +79,9 @@ h4 {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
+    left: 60px;
 }
 
 .w-btn-outline {
@@ -85,7 +89,6 @@ h4 {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -97,10 +100,4 @@ h4 {
 .w-btn-blue-outline {
     border: 3px solid #0090f9;
     color: #6e6e6e;
-}
-.findIdBtn {
-    position: relative;
-    left: 605px;
-    top: 45px;
-
 }

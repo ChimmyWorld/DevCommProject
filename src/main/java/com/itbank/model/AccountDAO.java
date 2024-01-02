@@ -29,5 +29,8 @@ public interface AccountDAO {
 	String selectIdx();
 	int updateProfileImg(AccountVO input);
 
-	int setProfileImgDefault(int idx); 
+	int setProfileImgDefault(int idx);
+
+	// 패스워드 변경 성공 시 닉네임 출력
+	String getNick(AccountVO input); 
 }

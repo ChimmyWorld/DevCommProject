@@ -19,28 +19,22 @@
     <header>
         <div class="checkimg"><img src="${cpath }/assetImg/check.png" width="200px"></div>
         <div class="singUPmessage">
-            <c:if test="${row == 1 }">
+            <c:if test="${user != null }">
             <ul>
                 <li><h1>${user}</h1></li>
                 <h1>님</h1>
             </ul>
             </c:if>
+            <h4>${msg }</h4>
         </div>
    
-   		<div class="infomessage">
-	        <ul>
-	            <li><h6>${msg }</h6></li>
-	        </ul>
-	    </div>
-   
-        <c:if test="${row == 0 }">
-            <button class="w-btn w-btn-blue" type="button" onclick="history.back()" style="cursor: pointer;">뒤로가기</button>
-        </c:if>
-        <c:if test="${row == 1 }">
-        <button class="w-btn w-btn-blue" type="button" onclick="location.href='${cpath}/login'" style="cursor: pointer;">
-            로그인
-        </button>
-        </c:if>
-    </header>
-
-    <%@ include file="../footer.jsp" %>
+    <c:if test="${row == 0 }">
+		<button class="w-btn w-btn-blue" type="button" onclick="history.back()" style="cursor: pointer;">뒤로가기</button>
+	</c:if>
+    <c:if test="${row == 1 }">
+    <button class="w-btn w-btn-blue" type="button" onclick="location.href='${cpath}/login'" style="cursor: pointer;">
+        로그인
+    </button>
+    </c:if>
+</header>
+<%@ include file="../footer.jsp" %>

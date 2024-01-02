@@ -78,4 +78,9 @@
 		parameterType="int">
 		update account set profile_img = 'default.jpg' where idx = #{idx}	
 	</update>
+	
+	<select id="getNick"
+		resultType="String">
+		select nick from account where idx = #{idx}
+	</select>
 </mapper>

@@ -32,22 +32,24 @@ function badCount() {
 };
 
 const url = 'recommend/';
-let countPoint = document.getElementsByClassName('recCount')[0];
+let countPoint = document.getElementsByClassName('recommendcnt')[0];
 let recommender = document.getElementsByName('writer')[0].value;
 var isCheck = 0;
 
 showPoint();
 
-const recommendButton = document.querySelectorAll('.recommend button');
+const recommendButton = document.querySelectorAll('.recommendtable th');
+const goodButton = recommendButton[0].querySelector('button');
+const badButton = recommendButton[2].querySelector('button');
 
 // Add a click event listener to the recommend button
-recommendButton[0].addEventListener('click', () => {
+goodButton.addEventListener('click', () => {
 	if(recommender === '') {
 		alert('로그인 한 유저만 추천 기능을 사용할 수 있습니다');
 	}
 	else{
         // Check if the button has the 'good' class
-        const isGood = recommendButton[0].classList.contains('good');
+        const isGood = goodButton.classList.contains('good');
         
         // Set isChecked based on the class presence
         const isCheck = isGood ? 1 : 0;
@@ -67,23 +69,23 @@ recommendButton[0].addEventListener('click', () => {
         .then(response => response.json())
         .then(newSessionValue => {
         	if(newSessionValue === 1) {
-        		recommendButton[0].classList.add('good');
+        		goodButton.classList.add('good');
         	}
         	if(newSessionValue === 2) {
-        		recommendButton[0].classList.remove('good');
+        		goodButton.classList.remove('good');
         	}
             showPoint();
         })
 	}
 });
 
-recommendButton[1].addEventListener('click', () => {
+badButton.addEventListener('click', () => {
 	if(recommender === '') {
 		alert('로그인 한 유저만 추천 기능을 사용할 수 있습니다');
 	}
 	else{
         // Check if the button has the 'good' class
-        const isGood = recommendButton[1].classList.contains('bad');
+        const isGood = badButton.classList.contains('bad');
         
         // Set isChecked based on the class presence
         const isCheck = isGood ? 2 : 0;
@@ -103,10 +105,10 @@ recommendButton[1].addEventListener('click', () => {
         .then(response => response.json())
         .then(newSessionValue => {
         	if(newSessionValue === 1) {
-        		recommendButton[1].classList.add('bad');
+        		badButton.classList.add('bad');
         	}
         	if(newSessionValue === 2) {
-        		recommendButton[1].classList.remove('bad');
+        		badButton.classList.remove('bad');
         	}
             showPoint();
         })

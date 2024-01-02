@@ -1,11 +1,24 @@
-
+.commentContent{
+    text-indent: 50px;
+}
 .title {
     position: relative;
     left: 400px;
     display: flex;
     justify-content: center;
     width: 700px;
-    background-image: url(/Home/img/qna1.png);
+    top: 85px;
+}
+.menu {
+    z-index: 1;
+}
+.title2img {
+    position: relative;
+    left: 7px;
+}
+.info {
+    position: relative;
+    bottom: 90px;
 }
 
 .hr-sect {
@@ -43,7 +56,15 @@
     position: relative;
     left: 73px;
     bottom:70px;
-    line-height: 10px;
+    height: 20px;
+}
+.contentusersinfo ul {
+    list-style: none;
+    position: relative;
+    left: 70px;
+    bottom:80px;
+    height: 20px;
+    list-style: none;
 }
 .cominfo ul{
     list-style: none;
@@ -87,7 +108,6 @@ input {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -97,7 +117,6 @@ input {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -167,9 +186,9 @@ input {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
+    left: 50px;
 }
 .modify_rply {
     position: relative;
@@ -178,9 +197,9 @@ input {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
+    left: 50px;
 }
 
 .modify_rply-outline {
@@ -188,7 +207,6 @@ input {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 
@@ -211,8 +229,24 @@ input {
     padding: 10px 20px;
 }
 textarea {
-    width: 775px;
-    height: 70px;
+    position: relative;
+    left: 50px;
+    min-width: 775px;
+    max-width: 775px;
+    min-height: 70px;
+    max-height: 70px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: both;
+}
+.replytext {
+    min-width: 775px;
+    max-width: 775px;
+    min-height: 70px;
+    max-height: 70px;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #bbb;
@@ -224,7 +258,7 @@ textarea {
     position: relative;
     display: inline-block;
     left: 760px;
-    bottom: 190px;
+    bottom: 170px;
   }
   .dropdown_rply h2 {
       color: black;
@@ -253,7 +287,59 @@ textarea {
     text-align: left;
     padding: 0.5rem;
   }
+  .dropdown_menu a div:hover {
+    background-color: #aaaaaa;
+  }
   
   .dropdown_rply:hover .dropdown_menu {
     display: block;
   }
+ 
+  .dropdown_modify {
+    position: relative;
+    display: inline-block;
+    left: 1200px;
+    bottom: 140px;
+  }
+  .dropdown_modify h2 {
+      color: black;
+      font-size: 20px;
+  }
+  
+  
+  .dropdown_modifymenu {
+    position: absolute;
+    display: none;
+    width: 157px;
+    background: white;
+    border-radius: 5%;
+    box-shadow: 4px 4px 10px #c5b0b0;
+  }
+  
+  .dropdown_modifymenu a {
+    display: block;
+    color: black;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .dropdown_modifymenu a div {
+   font-size: 10px;
+    text-align: left;
+    padding: 0.5rem;
+  }
+  .dropdown_modifymenu a div:hover {
+    background-color: #aaaaaa;
+   }
+  
+  .dropdown_modify:hover .dropdown_modifymenu {
+    display: block;
+  }
+.good {
+	color: rgb(0, 144, 249);
+}
+
+.bad {
+	color: rgb(244, 124, 124);
+}
+
