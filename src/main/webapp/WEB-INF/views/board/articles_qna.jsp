@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>contents2</title>
 
-
     <link rel="stylesheet" href="${cpath}/resources/css/header.css">
     <link rel="stylesheet" href="${cpath}/resources/css/qnacontents.css">
     <link rel="stylesheet" href="${cpath}/resources/css/footer.css">
