@@ -24,8 +24,9 @@
     bottom: 1400px;
   }
 .myWrite {
+	min-height: 488px;
     position: relative;
-    bottom: 1800px;
+    bottom: 1920px;
     left: 450px;
 }
 .myWrite .column{
@@ -42,8 +43,8 @@
     border: 1px solid #aaaaaa;
 }
 .search_keyword {
-    position: relative;
-    top: 20px;
+    position: absolute;
+    top: 455px;
     left: 270px;
 }
 select {
@@ -105,15 +106,15 @@ select {
     justify-content: center;
     list-style: none;
     justify-content: space-evenly;
-    position: relative;
-   left: 100px;
-    top: 170px;
+    position: absolute;
+    left: 100px;
+    top: 475px;
 }
 .dropdown{
-position : relative;
-display : inline-block;
-left: 940px;
-bottom: 400px;
+	position: absolute;
+    display: inline-block;
+    left: 940px;
+    bottom: 490px;
 }
 .dropbtn_icon{
 font-family : 'Material Icons';
