@@ -73,7 +73,7 @@ public class AccountController {
 		
 		model.addAttribute("map", as.findID(email));
 		
-		return "login/result";
+		return "login/idResult";
 	}
 	
 	@GetMapping("/findPw")
@@ -88,7 +88,7 @@ public class AccountController {
 		
 		model.addAttribute("map", as.findPW(input));
 		
-		return "login/result";
+		return "login/pwResult";
 	}
 	
 	@ExceptionHandler(SQLIntegrityConstraintViolationException.class)

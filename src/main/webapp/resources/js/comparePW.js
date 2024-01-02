@@ -10,11 +10,11 @@ expw.onblur = () => {
 		console.log(data);
 		
 		if(pw == data) {
-			h6[0].innerHTML = '';
+			h6[1].innerHTML = '';
 		}
 		else {
-			h6[0].innerHTML = '등록한 패스워드와 일치하지 않습니다';
-			h6[0].style.color = 'red';
+			h6[1].innerHTML = '등록한 패스워드와 일치하지 않습니다';
+			h6[1].style.color = 'red';
 			
 			expw.value = '';
 			expw.focus();

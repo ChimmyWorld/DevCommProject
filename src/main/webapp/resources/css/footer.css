@@ -1,4 +1,12 @@
+body {
+    width: 1500px;
+    margin: 0 auto;
+    height: 3000px;
+    position: relative;
+}
 footer {
+    position: absolute;
+    bottom: 0;
     background-color: aliceblue;
     display: flex;
     justify-content: space-between;
@@ -9,8 +17,4 @@ footer {
 }
 .cominfo ul{
     list-style: none;
-}
-footer {
-    position: relative;
-    top: 100%;
 }

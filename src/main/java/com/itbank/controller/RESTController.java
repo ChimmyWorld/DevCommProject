@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itbank.model.vo.AccountVO;
@@ -67,9 +64,13 @@ public class RESTController {
 		return contents;
 	}
 	
-	@ExceptionHandler(NoSuchAlgorithmException.class)
-	public String algoEx() {
-		return "redirect:/";
+	@PostMapping("qna/replyedit")
+	public String qnaReplyUpdate(@RequestBody ReplyVO input) {
+		System.out.println(input.getContents());
+		
+		String contents = rs.replyUpdate(input);
+		
+		return contents;
 	}
 	
 	@PatchMapping("/myPage/info/{idx}")
@@ -80,6 +81,11 @@ public class RESTController {
 		int row = as.setProfileImgDefault(input.getIdx(), session);
 
 		return row;
+	}
+	
+	@ExceptionHandler(NoSuchAlgorithmException.class)
+	public String algoEx() {
+		return "redirect:/";
 	}
 	
 }

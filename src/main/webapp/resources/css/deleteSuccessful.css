@@ -4,20 +4,17 @@ body {
     height: 1000px;
     padding: 300px 0px;
 }
-header {
-    position: relative;
-    left: 590px;
-    top: 100px;
-}
+
 div h1 {
     height: 10px;
 }
 .deletemessage ul{
     display: flex;
+    justify-content: center;
     list-style-type: none;
     position: relative;
-    bottom: 210px;
-    left: 20px;
+    bottom: 330px;
+    right: 10px;
 }
 .deletemessage li {
     color: rgb(77, 120, 238);
@@ -25,13 +22,16 @@ div h1 {
 }
 .deletemessage h4 {
     position: relative;
-    bottom: 215px;
-    right: 30px;
-    padding: 15px;
+    bottom: 320px;
+    left: 20px;
+    display: flex;
+    justify-content: center;
 }
 .exitimg {
+    display: flex;
+    justify-content: center;
     position: relative;
-    bottom: 200px;
+    bottom: 170px;
 }
 .w-btn {
     position: relative;
@@ -44,7 +44,6 @@ div h1 {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -54,7 +53,6 @@ div h1 {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }

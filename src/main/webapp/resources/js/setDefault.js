@@ -1,5 +1,5 @@
  let button = document.getElementsByClassName('setDefault')[0]
-	  let img = document.getElementsByTagName('img')[0]
+	  let img = document.getElementsByTagName('img')[5]
 	  let idx = document.getElementsByName('idx')[0].value
 	  const url = '/project/myPage/info/' + idx
 		  

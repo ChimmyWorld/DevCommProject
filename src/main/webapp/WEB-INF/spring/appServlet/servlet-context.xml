@@ -16,6 +16,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/boardImg/**" location="file:C:/img_folder/board/" />
 	<resources mapping="/profileImg/**" location="file:C:/img_folder/profile/" />
+	<resources mapping="/assetImg/**" location="file:C:/img_folder/assets/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -29,5 +30,21 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.itbank.controller" />
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/free/*"/>
+			<mapping path="/info/*"/>
+			<mapping path="/study/*"/>
+			<mapping path="/qna/new"/>
+			<mapping path="/myPage/**"/>
+			<beans:bean id="loginCheck" class="com.itbank.interceptors.WriterNullInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/articles/*"/>
+			<mapping path="/qna/*"/>
+			<beans:bean id="userCheck" class="com.itbank.interceptors.ReplyNullInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>

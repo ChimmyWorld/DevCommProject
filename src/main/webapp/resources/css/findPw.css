@@ -13,8 +13,12 @@ body {
 }
 .loginchar {
     color: #aaaaaa;
+    position: relative;
+    left: 14px;
 }
 .login input {
+    position: relative;
+    left: 14px;
     width: 500px;
     height: 32px;
     font-size: 15px;
@@ -61,7 +65,7 @@ h4 {
 .w-btn {
     position: relative;
     top: 45px;
-    left: 550px;
+    left: 70px;
     border: none;
     margin: 20px;
     height: 45px;
@@ -70,7 +74,6 @@ h4 {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
@@ -80,7 +83,6 @@ h4 {
     padding: 15px 30px;
     border-radius: 15px;
     font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
 }
