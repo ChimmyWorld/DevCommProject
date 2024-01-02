@@ -14,15 +14,15 @@
 <body>
     <header class="loginheader">
         <div>
-            <img src="${cpath }/assetImg/Acclogo.png" onclick="location.href='${cpath}/'" style="cursor: pointer;">
+            <img src="${cpath }/assetImg/DEVCOMM-logo.png" width="300px" onclick="location.href='${cpath}/'" style="cursor: pointer;">
         </div>
         <div>
             <h4>계정 찾기</h4>
         </div>
         <div class="headerinfo">
             <ul>
-                <li><h6>회원 가입시 입력하신 이메일 주소를 입력하시면,</h6></li>
-                <li><h6>해당 이메일로 아이디 및 비밀번호 변경 링크를 보내드립니다.</h6></li>
+                <li><h6>회원 가입시 입력하신 이메일 주소를 입력하시면, 해당 이메일로 등록된 아이디를 알려드립니다.</h6></li>
+                <br>
             </ul>
         </div>
     </header>
@@ -31,7 +31,7 @@
     <div class="login findIdBtn">
         <form method="POST">
             <label for="email"><h5 class="loginchar">이메일 주소</h5></label>
-            <p><li><input id="email" type="email" name="email" placeholder="Email" required></li></p>
+            <p><li><input id="email" type="email" name="email" required></li></p>
          
             <button class="w-btn w-btn-blue" style="cursor: pointer;">계정찾기</button>
             <button class="w-btn w-btn-blue" type="button" onclick="history.back()" style="cursor: pointer;">취소</button>

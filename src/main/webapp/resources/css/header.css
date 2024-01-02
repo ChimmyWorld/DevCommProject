@@ -23,7 +23,7 @@ header {
 
 .menu{
     position: relative;
-    left: 180px;
+    left: 100px;
     width: 900px;
 }
 .menu > ul {
@@ -75,7 +75,7 @@ hr {
     position: relative;
     margin: 20px;
     height: 45px;
-    left: 230px;
+    left: 160px;
     border: #aaaaaa;
     display: inline-block;
     padding: 15px 30px;
@@ -107,7 +107,7 @@ hr {
 .n-btn {
     position: relative;
     height: 45px;
-    left: 230px;
+    left: 150px;
     border: none;
     display: inline-block;
     padding: 15px 30px;

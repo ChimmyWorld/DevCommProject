@@ -15,23 +15,23 @@
 <body>
 <header class="loginheader">
     <div>
-        <img src="${cpath }/assetImg/Acclogo.png" height="80px" onclick="location.href='${cpath}/'" style="cursor: pointer;">
+        <img src="${cpath }/assetImg/DEVCOMM-logo.png" height="91px" onclick="location.href='${cpath}/'" style="cursor: pointer;">
     </div>
     <div>
-        <h4>OKKY에 오신것을 환영합니다.</h4>
+        <h4>DEVHUB에 오신것을 환영합니다.</h4>
     </div>
     <div>
-        <h6 class="mainmsg">OKKY는 소프트웨어 개발자를 위한 지식공유 플랫폼입니다.</h6>
+        <h6 class="mainmsg">DEVHUB는 개발자를 위한 정보공유 커뮤니티입니다.</h6>
     </div>
 </header>
-<div class="hr-sect">OKKY 아이디로 로그인</div>
+<div class="hr-sect">DEVHUB 아이디로 로그인</div>
    
 <div class="login">
     <form method="POST">
         <label for="userid"><h5 class="loginchar">아이디</h5></label>
-        <p><li><input id="userid" name="userid" placeholder="ID" required value="${cookie.userid.value}"></li></p>
+        <p><li><input id="userid" name="userid" required value="${cookie.userid.value}"></li></p>
         <label for="userpw"><h5 class="loginchar">비밀번호</h5></label>
-        <p><li><input id="userpw" name="userpw" type="password" placeholder="Password" required></li></p>
+        <p><li><input id="userpw" name="userpw" type="password" required></li></p>
         <div class="check_wrap">
             <input id="check_btn" type="checkbox" name="saveId" value="yes">
             <label for="check_btn"><span>아이디 저장</span></label>

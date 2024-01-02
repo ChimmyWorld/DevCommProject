@@ -16,33 +16,33 @@
 <body>
     <header class="loginheader">
         <div>
-            <img src="${cpath }/assetImg/Acclogo.png" onclick="location.href='${cpath}/'" style="cursor: pointer;">
+            <img src="${cpath }/assetImg/DEVCOMM-logo.png" width="300px" onclick="location.href='${cpath}/'" style="cursor: pointer;">
         </div>
         <div>
-            <h4>OKKY에 오신것을 환영합니다.</h4>
+            <h4>DEVHUB에 오신것을 환영합니다.</h4>
         </div>
         <div>
-            <h6 class="mainmsg">OKKY는 소프트웨어 개발자를 위한 지식공유 플랫폼입니다.</h6>
+            <h6 class="mainmsg">DEVHUB는 개발자를 위한 정보공유 커뮤니티입니다.</h6>
         </div>
     </header>
-    <div class="hr-sect">OKKY 아이디로 로그인</div>
+    <div class="hr-sect">DEVHUB 아이디로 로그인</div>
 
     <div class="login">
         <form method="POST">
            <label for="userid"><h5 class="loginchar">아이디</h5></label>
-           <p><li><input id="userid" name="userid" placeholder="ID" required></li></p>
+           <p><li><input id="userid" name="userid" required></li></p>
            <h6></h6>
            <label for="userpw"><h5 class="loginchar">비밀번호</h5></label>
-           <p><li><input id="userpw" class="pwd1" name="userpw" type="password" placeholder="PW" required></li></p>
+           <p><li><input id="userpw" class="pwd1" name="userpw" type="password" required></li></p>
            <h6></h6>
            <label for="pwcheck"><h5 class="loginchar">비밀번호 체크</h5></label>
-           <p><li><input id="pwcheck" class="pwd2" name="pwcheck" type="password" placeholder="PW" required></li></p>
+           <p><li><input id="pwcheck" class="pwd2" name="pwcheck" type="password"  required></li></p>
            <h6></h6>
            <label for="nick"><h5 class="loginchar">닉네임</h5></label>
-           <p><li><input id="nick" name="nick" placeholder="Nick" required></li></p>
+           <p><li><input id="nick" name="nick" required></li></p>
            <h6></h6>
            <label for="email"><h5 class="loginchar">이메일</h5></label>
-           <p><li><input id="email" name="email" type="email" placeholder="Email" required></li></p>
+           <p><li><input id="email" name="email" type="email" required></li></p>
            <h6></h6>
            <button class="w-btn w-btn-blue" style="cursor: pointer;">회원가입</button>
         </form>

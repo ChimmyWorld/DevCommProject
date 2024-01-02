@@ -23,7 +23,7 @@
 	<bean id="hc" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@192.168.1.100:1521:xe" />
-		<property name="username" value="c##project" />
+		<property name="username" value="c##itbank" />
 		<property name="password" value="it" />
 	</bean>
 	
