@@ -59,6 +59,7 @@
     </header>
     <div class="hr"></div>
 
+<div class="info">
 <h1 class="title1"><a href="${cpath }/free">자유게시판<img src="${cpath }/assetImg/home1.png"></a></h1>
 <table class="table1">
     <c:forEach var="row" items="${freePreview }">
@@ -184,5 +185,6 @@
     </th>
     </c:forEach>
 </table>
+</div>
 
 <%@ include file="footer.jsp" %>

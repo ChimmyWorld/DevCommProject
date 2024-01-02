@@ -14,11 +14,16 @@
     color:rgb(122, 122, 187);
     cursor: pointer;
 }
-
+.info{
+	position: absolute;
+}
 .table1, .title1 {
  position: relative;
  top: 85.5px;
  left: 150px;
+}
+.table1 {
+	min-height: 412px;
 }
 .title2 {
  width: 500px;
@@ -35,10 +40,12 @@
 
 .table2, .title2 {
  position: relative;
- top: 185.5px;
+ top: 610px;
  left: 150px;
 }
-
+.table2 {
+	min-height: 412px;
+}
 .title3 {
  width: 500px;
 }
@@ -53,10 +60,12 @@
 
 .table3, .title3 {
  position: relative;
- bottom: 901px;
- left: 850px;
+	left: 850px;
+    top: 90px;
 }
-
+.table3 {
+	min-height: 412px;
+}
 .title4 {
  width: 500px;
 }
@@ -72,8 +81,11 @@
 
 .table4, .title4 {
  position: relative;
- bottom: 804px;
  left: 850px;
+ top: 607px;
+}
+.table4 {
+	min-height: 412px;
 }
 .contents{
  font-weight: bolder;
