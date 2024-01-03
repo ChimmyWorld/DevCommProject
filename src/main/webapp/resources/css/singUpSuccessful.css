@@ -3,25 +3,37 @@ body {
     margin: 0 auto;
     height: 1000px;
     padding: 300px 0px;
-  
 }
-.successimg {
+
+
+.singUPmessage ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    position: relative;
+    right: 20px;
+}
+.singUPmessage li {
+    color: rgb(77, 120, 238);
+    padding: 0px;
+}
+.singUPmessage h1 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    bottom: 150px;
+    
+}
+.success {
     display: flex;
     justify-content: center;
     position: relative;
-    bottom: 200px;
+    bottom: 170px;
 }
-div h1 {
-   display: flex;
-   justify-content: center;
-   position: relative;
-   bottom: 180px;
-}
-
 .w-btn {
     position: relative;
-    bottom: 120px;
-    left: 680px;
+    bottom: 150px;
+    left: 682px;
     margin: 20px;
     height: 45px;
     border: none;
@@ -50,11 +62,10 @@ div h1 {
     border: 3px solid #0090f9;
     color: #6e6e6e;
 }
-
 .q-btn {
     position: relative;
-    bottom: 120px;
-    left: 680px;
+    bottom: 100px;
+    left: 600px;
     margin: 20px;
     height: 45px;
     border: #aaaaaa;

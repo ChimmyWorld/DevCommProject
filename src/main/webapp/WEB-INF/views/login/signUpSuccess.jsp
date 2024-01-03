@@ -16,7 +16,7 @@
 </head>
 <body>
     <header>
-        <div class="successimg"><img src="${cpath }/assetImg/success.png" width="150px"></div>
+        <div class="success"><img src="${cpath }/assetImg/success.png" width="150px"></div>
         <div class="singUPmessage">
             <h1>환영합니다!</h1>
             <ul>
@@ -24,12 +24,10 @@
                 <h1>님</h1>
             </ul>
         </div>
-   
-        <c:if test="${row == 1 }">
+
             <button class="w-btn w-btn-blue" type="button" onclick="location.href='${cpath}/login';" style="cursor: pointer;">
                 로그인
             </button>
-        </c:if>
     </header>
 	<%@ include file="../footer.jsp" %>
     

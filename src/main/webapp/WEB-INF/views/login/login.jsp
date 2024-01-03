@@ -18,13 +18,13 @@
         <img src="${cpath }/assetImg/DEVCOMM-logo.png" height="91px" onclick="location.href='${cpath}/'" style="cursor: pointer;">
     </div>
     <div>
-        <h4>DEVHUB에 오신것을 환영합니다.</h4>
+        <h4>DEVCOMM에 오신것을 환영합니다.</h4>
     </div>
     <div>
-        <h6 class="mainmsg">DEVHUB는 개발자를 위한 정보공유 커뮤니티입니다.</h6>
+        <h6 class="mainmsg">DEVCOMM은 개발자를 위한 자유로운 정보공유 커뮤니티입니다.</h6>
     </div>
 </header>
-<div class="hr-sect">DEVHUB 아이디로 로그인</div>
+<div class="hr-sect">DEVCOMM 아이디로 로그인</div>
    
 <div class="login">
     <form method="POST">

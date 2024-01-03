@@ -16,51 +16,7 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="${cpath }/assetImg/okky.png" height="80px" onclick="location.href='${cpath}/'" style="cursor: pointer;">
-        </div>
-        <nav class="menu">
-            <ul>
-                <li>&nbsp<a href="${cpath }/free">자유게시판</a></li>&emsp;
-                <li>&nbsp<a href="${cpath }/qna">Q&A</a></li>&emsp;
-                <li>&nbsp<a href="${cpath }/info">팁/정보게시판</a></li>&emsp;
-                <li>&nbsp<a href="${cpath }/study">스터디게시판</a></li>
-            </ul>
-        </nav>
-        <c:if test="${empty user }">
-        <button class="q-btn q-btn-blue" type="button" onclick="location.href='${cpath}/login';" style="cursor: pointer;">
-            로그인
-        </button>
-        <button class="n-btn n-btn-blue" type="button" onclick="location.href='${cpath}/signUp';" style="cursor: pointer;">
-            회원가입
-        </button>
-        </c:if>
-        <c:if test="${not empty user }">
-        <div class="dropdown_user">
-            <a>
-                <c:if test="${user.profile_img == 'default.jpg'}">
-                <img src="${cpath}/profileImg/default.jpg">
-                </c:if>
-                <c:if test="${user.profile_img != 'default.jpg'}">
-                <img src="${cpath}/profileImg/${user.idx}/${user.profile_img}">
-                </c:if>
-            </a>
-            <div class="dropdown_list">
-                <a href="${cpath }/myPage/info">
-                    <div><img src="${cpath }/assetImg/defaultprofile.jpg">프로필</div>
-                </a>
-                <a href="${cpath }/myPage/settings">
-                    <div><img src="${cpath }/assetImg/settiing.jpg">계정관리</div>
-                </a>
-                <a href="${cpath}/logout">
-                    <div><img src="${cpath }/assetImg/logout.jpg">로그아웃</div>
-                </a>
-            </div>
-        </div>
-        </c:if>
-    </header>
-    <div class="hr"></div>
+    <%@include file="../header.jsp" %>
 
     <div class="info">
             <h1 class="title">Q&A<img class="title2img" src="${cpath }/assetImg/contents2.png"></h1>
@@ -84,7 +40,7 @@
 				<img src="${cpath}/profileImg/${row.u_idx}/${row.profile_img}" class="profile">
 				</c:if>
             </div>
-            <div class="contentusersinfo">
+            <div class="contentusersinfo">  
                 <ul>
                     <li>
                         <h4 class="rowInt" data-idx="${row.idx }">${row.writer }</h4>
@@ -92,7 +48,23 @@
                     <li>
                         <h5>${row.write_date } / ${row.view_count }</h5>
                     </li>
-                </ul> 
+                </ul>
+                <c:if test="${user.nick == row.writer }">
+                <div class="dropdown_modify">
+                    <a href="#">
+                      <h2>...</h2>
+                    </a>
+                    <c:if test=""></c:if>
+                    <div class="dropdown_modifymenu">
+                        <a href="${cpath }/articles/${row.idx }/edit">
+                       <div>수정하기</div>
+                      </a>
+                      <a href="${cpath }/articles/${row.idx }/delete">
+                        <div>삭제하기</div>
+                      </a>
+                    </div>
+                    </div>
+                   </c:if>
             </div>
             <div class="pertitle">
             <h1>${row.title}</h1>
@@ -152,7 +124,8 @@
                     </li>
                 </ul>
                 <div id="commentRow_${re.idx}" class="commentRow">
-                <pre class="commentContent" >${re.contents }
+                <pre class="commentContent" >
+	${re.contents }
                 </pre>
                 <c:if test="${user.nick == re.writer }">
                 <div class="dropdown_rply">
@@ -172,7 +145,7 @@
                 </div>
                 <div class="editForm" id="editForm_${re.idx}" style="display: none">
                     <form onsubmit="saveComment(event, ${re.idx}); return false;">
-                        <textarea class="editTextArea" cols="30" rows="10">${re.contents}</textarea>
+                        <textarea class="editTextArea replytext" cols="30" rows="10">${re.contents}</textarea>
                         <br>
                         <div class="modify_btn">
                             <div><button class="modify_cancle" type="button" onclick="cancelEdit(${re.idx})">취소</button></div>
