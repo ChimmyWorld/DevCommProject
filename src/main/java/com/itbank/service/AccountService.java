@@ -97,7 +97,7 @@ public class AccountService {
 		}
 		else {
 			row = 1;
-			msg = "ID는 " + account.getUserid() + "입니다";
+			msg = "찾으시는 ID는 " + account.getUserid() + "입니다";
 			user = account.getNick();
 			map.put("row", row);
 			map.put("msg", msg);
@@ -162,13 +162,13 @@ public class AccountService {
 		user = dao.getNick(input);
 		
 		if(row == 1) {
-			msg = "비밀번호 변경이 성공적으로 되었습니다";
+			msg = "비밀번호 변경이 성공적으로 완료되었습니다";
 			map.put("row", row);
 			map.put("msg", msg);
 			map.put("user", user);
 		}
 		else {
-			msg = "패스워드 변경 실패 하였습니다. Data 재확인 부탁드립니다";
+			msg = "패스워드 변경에 실패했습니다. 입력한 데이터를 재확인해주세요";
 			map.put("row", row);
 			map.put("msg", msg);
 		}

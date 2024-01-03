@@ -17,7 +17,7 @@
 <body>
     <header class="loginheader">
 	    <div>
-	        <img src="${cpath }/assetImg/Acclogo.png" onclick="location.href='${cpath}/'" style="cursor: pointer;">
+	        <img src="${cpath }/assetImg/DEVCOMM-logo.png" width="300px" onclick="location.href='${cpath}/'" style="cursor: pointer;">
 	    </div>
 	    <div>
 	        <h4>계정 찾기</h4>

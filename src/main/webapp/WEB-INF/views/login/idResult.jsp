@@ -17,7 +17,14 @@
 </head>
 <body>
     <header>
-        <div class="checkimg"><img src="${cpath }/assetImg/check.png" width="200px"></div>
+        <div class="checkimg">
+        <c:if test="${row == 1 }">
+        <img src="${cpath }/assetImg/check.png" width="200px">
+        </c:if>
+        <c:if test="${row == 0 }">
+        <img src="${cpath }/assetImg/fail.png" width="200px">
+        </c:if>
+        </div>
         <div class="singUPmessage">
             <c:if test="${user != null }">
             <ul>

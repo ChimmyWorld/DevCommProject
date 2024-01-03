@@ -16,7 +16,7 @@
     <header>
         <div class="exitimg"><img src="${cpath }/assetImg/door1.PNG"></div>
         <div class="deletemessage">
-            <h4>그동안 DEVHUB와 함께 해주셔서 감사드립니다</h4>
+            <h4>그동안 DEVCOMM과 함께 해주셔서 감사드립니다</h4>
         </div>
     </header>
 

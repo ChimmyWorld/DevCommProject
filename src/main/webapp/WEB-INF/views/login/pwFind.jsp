@@ -36,7 +36,7 @@
             <label for="email"><h5 class="loginchar">이메일</h5></label>
             <p><li><input id="email" name="email" type="email" required></li></p>
          
-            <button class="w-btn w-btn-blue" style="cursor: pointer;">이메일로 찾기</button>
+            <button class="w-btn w-btn-blue" style="cursor: pointer;">비밀번호 찾기</button>
             <button class="w-btn w-btn-blue" type="button" onclick="history.back()" style="cursor: pointer;">취소</button>
         </form>
     </div>

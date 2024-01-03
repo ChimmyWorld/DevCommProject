@@ -57,7 +57,7 @@
         <c:forEach var="row" items="${infoList }">
         <table class="table">
             <tr class="column">
-                <th class="column1">
+                <th>
                     <c:if test="${row.profile_img == 'default.jpg'}">
                     <img src="${cpath}/profileImg/default.jpg" class="profile" width="20px" height="20px">
                     </c:if>
@@ -68,9 +68,11 @@
                 </th>
                 <th>&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th>
-                <th class="column2"><img src="${cpath }/assetImg/eye1.png" width="20px" height="20px">&nbsp;${row.view_count }</th>
-                <th class="column2"><img src="${cpath }/assetImg/up.jpg" width="20px" height="20px">&nbsp;${row.recommend_score }</th>
-                <th class="column2"><img src="${cpath }/assetImg/comment.jpeg" width="20px" height="20px">&nbsp;${row.reply_count }</th>
+                <th>
+	                <img src="${cpath }/assetImg/eye1.png" width="20px" height="20px">&nbsp;${row.view_count }
+	                <img src="${cpath }/assetImg/up.jpg" width="20px" height="20px">&nbsp;${row.recommend_score }
+	                <img src="${cpath }/assetImg/comment.jpeg" width="20px" height="20px">&nbsp;${row.reply_count }
+                </th>
             </tr>
         </table>
         <div class="contents"><a href="${cpath }/articles/${row.idx }">
@@ -81,19 +83,19 @@
         </th>
         </c:forEach>
           
+    <form>
     <div class="search_drop">
-        <form action="">
-        <select>
-            <option value="title">제목</option>
+            <select name="keyword">
+                <option value="title">제목</option>
                 <option value="writer">작성자</option>
-                <option value="contents">댓글</option>
-        </select>
+            </select>
     </div>
     <div class="search">
         <input name="search" type="text" placeholder="검색어 입력">
-      </div>
-      <button class="search_btn" style="cursor: pointer;">검색</button>
+    </div>
+    <button class="search_btn" style="cursor: pointer;">검색</button>
     </form>
+    
     <div class="page">  
         <ul>
             <c:if test="${p.prev}">

@@ -18,6 +18,7 @@
 	position: absolute;
 }
 .table1, .title1 {
+ z-index: 1;
  position: relative;
  top: 85.5px;
  left: 150px;

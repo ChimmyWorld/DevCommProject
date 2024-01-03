@@ -53,11 +53,26 @@
   position: relative;
   left: 5px;
 }
+.column th {
+    border: none;
+    text-align: left;
+    padding: 8px 0;
+    position: relative;
+}
+
+
 .table {
     display: flex;
-    justify-content: center;
-    margin: 0 0 5px 22px;
+    flex-direction: column;
+    margin:  0 0 5px 0px;
 }
+
+.column {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .page ul{
     display: flex;
     list-style: none;
@@ -121,9 +136,6 @@ input {
 .column img{
     position: relative;
     top: 3px; 
-}
-.column {
-  justify-content: space-evenly;
 }
 .search_drop select{
     border: 4px solid #aaaaaa;
@@ -199,14 +211,7 @@ input {
     position: relative;
     width: 1500px;
 }
-.column1 {
-  position: relative;
-  right: 450px;
-}
-.column2 {
-  position: relative;
-  left: 430px;
-}
+
 .contents {
   font-weight: bolder;
   font-size: 25px;
