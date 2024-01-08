@@ -9,7 +9,7 @@
   - 3주차 : 기능 추가 및 수정, 버그 수정
   - 4주차 : HTML -> JSP 적용 및 테스트
 
-## 🔨 개발 환경
+# 🔨 개발 환경
 ✔️ 운영체제
   - Windows 10 64bit
     
@@ -35,3 +35,6 @@
 
 ✔️ WAS
   - Apache Tomcat 8.5
+
+# 📋 ERD
+![DevComm ERD](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/7e548d65-d9c7-46b3-9e2c-c99347c3bd6e)
