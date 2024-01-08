@@ -49,3 +49,25 @@
 |5|추천|- 로그인 한 유저는 게시글에 추천 혹은 비추천을 할 수 있다||
 |6|마이페이지|- 로그인한 유저는 프로필 사진을 변경할 수 있다.<br/>- 내가 쓴 게시글 및 댓글 목록을 확인할 수 있고,<br/>검색 및 정렬이 가능하다.<br/>- 비밀번호 변경을 할 수 있다.<br/> - 회원 탈퇴를 진행할 수 있다 ||
 
+# 📸 주요 서비스 화면
+
+### 메인페이지
+![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/88850e87-01e8-4373-8777-7035730634ef)
+
+### 로그인
+![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/c5d4e779-6445-453b-abd2-59fdb17d40ba)
+
+### 회원가입
+![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/8258231d-ab00-4a80-a61a-23343ea951f2)
+
+### 게시물 목록
+![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/f17ba602-c3ce-41c3-951b-ba543ad0f80e)
+
+### 마이페이지 - 내정보
+![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/90348e81-9174-40bb-a18e-d0a90670819f)
+
+### 마이페이지 - 내 활동 
+![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/c75a5cf8-7a90-4f82-a76f-eb649236a793)
+
+### 마이페이지 - 계정 관리
+![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/aeec82ff-4a4e-4198-949c-7a15b239c932)
