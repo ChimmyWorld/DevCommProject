@@ -63,6 +63,12 @@
 ### 게시물 목록
 ![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/f17ba602-c3ce-41c3-951b-ba543ad0f80e)
 
+### 게시물 작성
+![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/96174f14-90d1-4de9-acf3-b6b75c47b347)
+
+### 게시물 상세보기 (추천, 댓글 확인 가능)
+![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/8d6d63b3-e504-4724-96e2-9e743d80b108)
+
 ### 마이페이지 - 내정보
 ![image](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/90348e81-9174-40bb-a18e-d0a90670819f)
 
