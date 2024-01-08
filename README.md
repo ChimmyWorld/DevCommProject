@@ -36,6 +36,9 @@
 ✔️ WAS
   - Apache Tomcat 8.5
 
+# 📋 ERD
+![DevComm ERD](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/7e548d65-d9c7-46b3-9e2c-c99347c3bd6e)
+
 # 👍 주요 기능
 |구분|기능|설명|비고|
 |---|---|---|---|
@@ -46,8 +49,3 @@
 |5|추천|- 로그인 한 유저는 게시글에 추천 혹은 비추천을 할 수 있다||
 |6|마이페이지|- 로그인한 유저는 프로필 사진을 변경할 수 있다.<br/>- 내가 쓴 게시글 및 댓글 목록을 확인할 수 있고,<br/>검색 및 정렬이 가능하다.<br/>- 비밀번호 변경을 할 수 있다.<br/> - 회원 탈퇴를 진행할 수 있다 ||
 
-
-
-
-# 📋 ERD
-![DevComm ERD](https://github.com/ChimmyWorld/DevCommProject/assets/61040342/7e548d65-d9c7-46b3-9e2c-c99347c3bd6e)
